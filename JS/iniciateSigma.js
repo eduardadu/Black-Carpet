@@ -30,14 +30,15 @@ function createGaph() {
   });
 }
 
-
 function styleEdges() {
   var getEdges = s.graph.edges();
 
   //Clica por todas as edges
   $.each(getEdges, function(key, value) {
-    console.log(value.attributes);
-    var atts = getSortedKeys(value.attributes);
+    var atts = value.attributes;
+
+    //Ordernar os atribuitos por valor
+
     console.log(atts);
   });
 
@@ -45,10 +46,4 @@ function styleEdges() {
 
   getEdges[0].color = "rgb(0, 255, 255)";
   s.refresh();
-}
-
-
-function getSortedKeys(obj) {
-    var keys = keys = Object.values(obj);
-    return keys.sort(function(a,b){return obj[b]-obj[a]});
 }
