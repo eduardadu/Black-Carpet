@@ -1,7 +1,6 @@
-{
-  "nodes": [
+{  "nodes":[
     {
-      "label": "\"Joaquin Phoenix\"",
+      "label": "Joaquin Phoenix",
       "x": 1303.2706298828125,
       "y": 127.81237030029297,
       "id": "10",
@@ -10,7 +9,7 @@
       "size": 10
     },
     {
-      "label": "\"Brad Pitt\"",
+      "label": "Brad Pitt",
       "x": -125.80122375488281,
       "y": -27.87795639038086,
       "id": "2",
@@ -116,18 +115,18 @@
       "size": 3
     },
     {
-      "label": "The Wolf of Wallstreet",
+      "label": "The Wolf of Wallstreet-2",
       "source": "3",
       "target": "6",
-      "id": "4",
+      "id": "10",
       "attributes": {
         "drama": "1",
         "comedy": "1",
         "action": "1",
         "thriller": "0"
       },
-      "color": "rgb(0,0,0)",
-      "size": 1
+      "color": "rgb(255,0,0)",
+      "size": 10
     },
     {
       "label": "The Big Lebowski",
