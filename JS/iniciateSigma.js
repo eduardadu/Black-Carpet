@@ -49,10 +49,10 @@ function ww() {
     console.log(data);
     items = data;
     for(let i = 0; i < data.edges.length; i++) {
-      var atts = data.edges[i].attributes;
+      var atts = [];
       for(let j = 0; j < atts.length; j++) {
-        if(atts[j] == 0) {
-          atts.splice(0, j, j, atts.length);
+        if(atts[j] == "0") {
+          atts.splice(j, 1);
         }
       }
       //atts.sort(function(a, b){return b-a});
