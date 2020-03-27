@@ -5,3 +5,28 @@
   right: 0;
   position: absolute;
 }
+
+#ui_container {
+  background-color: rgba(0, 0, 0, 0.2);
+  position: relative;
+  pointer-events: auto;
+}
+
+/* esconder as checkbox's do form de genres */
+input[type="checkbox"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.settings-box-element {
+  z-index: 10;
+}
+
+.genre_box + label {
+    cursor: pointer;
+}
+
+.genre_box:checked + label {
+  color: red;
+  border-color: #e83737;
+}
