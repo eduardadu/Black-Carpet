@@ -23,10 +23,36 @@ input[type="checkbox"] {
 }
 
 .genre_box + label {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .genre_box:checked + label {
   color: red;
   border-color: #e83737;
+}
+
+#seach_container {
+  margin: 10px;
+  position: relative;
+}
+
+#search_bar {
+  border: none;
+}
+
+#search_bar, #suggestion-container {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+#suggestion-container {
+  position: absolute;
+  left: 0;
+  pointer-events: none;
+}
+
+#suggestion{
+  color: red;
 }

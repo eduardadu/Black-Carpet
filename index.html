@@ -6,6 +6,8 @@
   <!-- jQuery-->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
+  <!-- Frameworks-->
+
   <!-- Sigma core -->
   <script src="../src/sigma.core.js"></script>
   <script src="../src/conrad.js"></script>
@@ -58,8 +60,11 @@
   <script src="../plugins/sigma.parsers.json/sigma.parsers.json.js"></script>
 
   <!-- Javascript -->
+  <script src="JS/colors_and_stuff.js"></script>
   <script src="JS/iniciateSigma.js"></script>
-  <script src="JS/ui_handler.js"></script>
+  <script src="JS/ui_genre_handler.js"></script>
+  <script src="JS/ui_search_handler.js"></script>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -108,7 +113,14 @@
         <input class="genre_box" id="western" type="checkbox" name="western" value="western" checked>
         <label for="western">Western</label>
       </form>
+      <div id="seach_container">
+        <form id="search_actor">
+        <span id="suggestion-container"><span id="typed"></span><span id="suggestion"></span></span>
+        <input id="search_bar" value="" type="text" placeholder="John Doe">
+      </form>
+      </div>
     </div>
   </div>
+  <div id="test"></div>
 </body>
 </html>
