@@ -22,6 +22,7 @@ $( document ).ready(function() {
       }
       suggestion.innerText = guess.substring(searchQ.length);
     } else {
+      guess = "€";
       suggestion.innerText = "";
     }
   });
@@ -42,7 +43,8 @@ function getSuggestion(query) {
 
 function goToNode(actorN) {
   console.log("Searching "+actorN);
-  
+
+  var found = false;
   if(highlightedNode != null) {
     removeNodeHighlight(highlightedNode);
   }
@@ -50,10 +52,14 @@ function goToNode(actorN) {
   for(let i=0; i<s.graph.nodes().length; i++) {
     if(s.graph.nodes()[i].label === actorN) {
       highlightedNode = s.graph.nodes()[i];
+      found = true;
     }
   }
-  highlightedNode.color = hightedColor;
-  var coods  = {x:highlightedNode['read_camcam1:x'], y:highlightedNode['read_camcam1:y'], ratio:0.1, angle:1};
-  s.cameras.cam1.goTo(coods);
-  hightlightNode(highlightedNode.id);
+
+  if(found) {
+    highlightedNode.color = hightedColor;
+    var coods  = {x:highlightedNode['read_camcam1:x'], y:highlightedNode['read_camcam1:y'], ratio:0.1, angle:1};
+    s.cameras.cam1.goTo(coods);
+    hightlightNode(highlightedNode.id);
+  } 
 }

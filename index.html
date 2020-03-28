@@ -65,7 +65,8 @@
   <script src="JS/ui_genre_handler.js"></script>
   <script src="JS/ui_search_handler.js"></script>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/loadfonts.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div id="container">
@@ -75,49 +76,53 @@
 
   <div id="ui_container">
     <div id="sidebar">
-      <form id="genre_selector">
-        <input class="genre_box" id="action" type="checkbox" name="action" value="action" checked>
-        <label for="action">Action</label>
-        <input class="genre_box" id="adventure" type="checkbox" name="adventure" value="adventure" checked>
-        <label for="adventure">Adventure</label>
-        <input class="genre_box" id="animation" type="checkbox" name="animation" value="animation" checked>
-        <label for="animation">Animation</label>
-        <input class="genre_box" id="comedy" type="checkbox" name="comedy" value="comedy" checked>
-        <label for="comedy">Comedy</label>
-        <input class="genre_box" id="crime" type="checkbox" name="crime" value="crime" checked>
-        <label for="crime">Crime</label>
-        <input class="genre_box" id="drama" type="checkbox" name="drama" value="drama" checked>
-        <label for="drama">Drama</label>
-        <input class="genre_box" id="documentary" type="checkbox" name="documentary" value="documentary" checked>
-        <label for="documentary">Documentary</label>
-        <input class="genre_box" id="family" type="checkbox" name="family" value="family" checked>
-        <label for="family">Family</label>
-        <input class="genre_box" id="fantasy" type="checkbox" name="fantasy" value="fantasy" checked>
-        <label for="fantasy">Fantasy</label>
-        <input class="genre_box" id="history" type="checkbox" name="history" value="history" checked>
-        <label for="history">History</label>
-        <input class="genre_box" id="horror" type="checkbox" name="horror" value="horror" checked>
-        <label for="horror">Horror</label>
-        <input class="genre_box" id="mystery" type="checkbox" name="mystery" value="mystery" checked>
-        <label for="mystery">Mystery</label>
-        <input class="genre_box" id="music" type="checkbox" name="music" value="music" checked>
-        <label for="music">Music</label>
-        <input class="genre_box" id="romance" type="checkbox" name="romance" value="romance" checked>
-        <label for="romance">Romance</label>
-        <input class="genre_box" id="scifi" type="checkbox" name="scifi" value="scifi" checked>
-        <label for="scifi">Science Fiction</label>
-        <input class="genre_box" id="thriller" type="checkbox" name="thriller" value="thriller" checked>
-        <label for="thriller">Thriller</label>
-        <input class="genre_box" id="war" type="checkbox" name="war" value="war" checked>
-        <label for="war">War</label>
-        <input class="genre_box" id="western" type="checkbox" name="western" value="western" checked>
-        <label for="western">Western</label>
-      </form>
       <div id="seach_container">
+        <div class="ui_title" >Find Actor</div>
         <form id="search_actor">
-        <span id="suggestion-container"><span id="typed"></span><span id="suggestion"></span></span>
-        <input id="search_bar" value="" type="text" placeholder="John Doe">
-      </form>
+          <span id="suggestion-container"><span id="typed"></span><span id="suggestion"></span></span>
+          <input id="search_bar" value="" type="text" placeholder="John Doe">
+        </form>
+      </div>
+      <div id="genre_container">
+        <div class="ui_title" >Categories</div>
+        <form id="genre_selector">
+          <input class="genre_box" id="action" type="checkbox" name="action" value="action" checked>
+          <label for="action">Action</label>
+          <input class="genre_box" id="adventure" type="checkbox" name="adventure" value="adventure" checked>
+          <label for="adventure">Adventure</label>
+          <input class="genre_box" id="animation" type="checkbox" name="animation" value="animation" checked>
+          <label for="animation">Animation</label>
+          <input class="genre_box" id="comedy" type="checkbox" name="comedy" value="comedy" checked>
+          <label for="comedy">Comedy</label>
+          <input class="genre_box" id="crime" type="checkbox" name="crime" value="crime" checked>
+          <label for="crime">Crime</label>
+          <input class="genre_box" id="drama" type="checkbox" name="drama" value="drama" checked>
+          <label for="drama">Drama</label>
+          <input class="genre_box" id="documentary" type="checkbox" name="documentary" value="documentary" checked>
+          <label for="documentary">Documentary</label>
+          <input class="genre_box" id="family" type="checkbox" name="family" value="family" checked>
+          <label for="family">Family</label>
+          <input class="genre_box" id="fantasy" type="checkbox" name="fantasy" value="fantasy" checked>
+          <label for="fantasy">Fantasy</label>
+          <input class="genre_box" id="history" type="checkbox" name="history" value="history" checked>
+          <label for="history">History</label>
+          <input class="genre_box" id="horror" type="checkbox" name="horror" value="horror" checked>
+          <label for="horror">Horror</label>
+          <input class="genre_box" id="mystery" type="checkbox" name="mystery" value="mystery" checked>
+          <label for="mystery">Mystery</label>
+          <input class="genre_box" id="music" type="checkbox" name="music" value="music" checked>
+          <label for="music">Music</label>
+          <input class="genre_box" id="romance" type="checkbox" name="romance" value="romance" checked>
+          <label for="romance">Romance</label>
+          <input class="genre_box" id="scifi" type="checkbox" name="scifi" value="scifi" checked>
+          <label for="scifi">Science Fiction</label>
+          <input class="genre_box" id="thriller" type="checkbox" name="thriller" value="thriller" checked>
+          <label for="thriller">Thriller</label>
+          <input class="genre_box" id="war" type="checkbox" name="war" value="war" checked>
+          <label for="war">War</label>
+          <input class="genre_box" id="western" type="checkbox" name="western" value="western" checked>
+          <label for="western">Western</label>
+        </form>
       </div>
     </div>
   </div>

@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: spaceGrotesk;
+}
+
 #sigma-container {
   top: 0;
   bottom: 0;
@@ -31,17 +37,13 @@ input[type="checkbox"] {
   border-color: #e83737;
 }
 
-#seach_container {
-  margin: 10px;
-  position: relative;
-}
 
 #search_bar {
   border: none;
 }
 
 #search_bar, #suggestion-container {
-  font-family: 'Quicksand', sans-serif;
+  font-family: spaceGrotesk;
   font-size: 18px;
   padding: 0;
   margin: 0;
@@ -55,4 +57,25 @@ input[type="checkbox"] {
 
 #suggestion{
   color: red;
+}
+
+
+#sidebar {
+  position: absolute;
+  right: 0;
+  background-color: rgba(0, 0, 255, 0.2);
+}
+
+
+#genre_selector, #search_actor {
+
+}
+
+#genre_selector > label {
+  display: block;
+}
+
+.ui_title {
+  font-family: spaceGrotesk;
+  font-weight: bold;
 }
