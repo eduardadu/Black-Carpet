@@ -111,7 +111,7 @@
     drawEdgeLabels: false,
     // {boolean} Indicates if the edges must be drawn in several frames or in
     //           one frame, as the nodes and labels are drawn.
-    batchEdgesDrawing: true,
+    batchEdgesDrawing: false,
     // {boolean} Indicates if the edges must be hidden during dragging and
     //           animations.
     hideEdgesOnMove: false,

@@ -11,8 +11,7 @@ function hightlightNode(id) {
   var ed = s.graph.edges();
   for(let i=0; i<ed.length; i++) {
     if(ed[i].source == id || ed[i].target == id) {
-      ed[i].color = hightedColor;
-      ed[i].size = "100";
+      HightlightEdge(ed[i]);
     } else {
       removeEdgeHighlight(ed[i]);
     }
@@ -21,11 +20,14 @@ function hightlightNode(id) {
   s.refresh();
 }
 
+function HightlightEdge(edg) {
+  edg.color = hightedColor;
+}
+
+
 function removeNodeHighlight(node) {
-  //get gender
 }
 
 
 function removeEdgeHighlight(node) {
-  //get gender
 }

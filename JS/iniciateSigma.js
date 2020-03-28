@@ -13,13 +13,13 @@ $( document ).ready(function() {
         labelColor: 'node',
         minEdgeSize: 0.01,
         maxEdgeSize: 0.05,
-        minNodeSize: 0.05,
-        maxNodeSize: 0.5,
-        defaultEdgeType: "line"
+        minNodeSize: 2,
+        maxNodeSize: 10
+        //defaultEdgeType: "thickLine",
+        //defaultNodeType: "fast"
       }
     }
   );
-
   createGaph();
 });
 
