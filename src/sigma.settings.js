@@ -58,7 +58,7 @@
     // {string} The ratio between the font size of the label and the node size.
     labelSizeRatio: 1,
     // {number} The minimum size a node must have to see its label displayed.
-    labelThreshold: 8,
+    labelThreshold: 20,
     // {number} The oversampling factor used in WebGL renderer.
     webglOversamplingRatio: 2,
     // {number} The size of the border of hovered nodes.
@@ -111,16 +111,14 @@
     drawEdgeLabels: false,
     // {boolean} Indicates if the edges must be drawn in several frames or in
     //           one frame, as the nodes and labels are drawn.
-    batchEdgesDrawing: false,
+    batchEdgesDrawing: true,
     // {boolean} Indicates if the edges must be hidden during dragging and
     //           animations.
     hideEdgesOnMove: false,
     // {numbers} The different batch sizes, when elements are displayed in
     //           several frames.
-    canvasEdgesBatchSize: 500,
+    canvasEdgesBatchSize: 200,
     webglEdgesBatchSize: 1000,
-
-
 
 
     /**
@@ -169,7 +167,7 @@
     //          user zooms by double clicking.
     doubleClickZoomingRatio: 2.2,
     // {number} The minimum zooming level.
-    zoomMin: 0.0625,
+    zoomMin: 0.05,
     // {number} The maximum zooming level.
     zoomMax: 2,
     // {number} The duration of animations following a mouse scrolling.
@@ -234,8 +232,6 @@
     //           > onScreenT = Math.pow(zoom, edgesPowRatio) * T
     nodesPowRatio: 0.5,
     edgesPowRatio: 0.5,
-
-
 
 
     /**

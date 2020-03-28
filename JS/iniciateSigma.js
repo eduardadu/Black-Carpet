@@ -6,16 +6,16 @@ $( document ).ready(function() {
     {
       renderer: {
         container: document.getElementById('sigma-container'),
-        type: 'canvas',
+        type: 'webgl',
         camera: "cam1"
       },
       settings: {
         labelColor: 'node',
-        minEdgeSize: 0.11;,
-        maxEdgeSize: 0.5,
-        minNodeSize: 0.1,
-        maxNodeSize: 1,
-        defaultEdgeType: "arrow"
+        minEdgeSize: 0.01,
+        maxEdgeSize: 0.05,
+        minNodeSize: 0.05,
+        maxNodeSize: 0.5,
+        defaultEdgeType: "line"
       }
     }
   );
