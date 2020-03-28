@@ -58,8 +58,9 @@ function goToNode(actorN) {
 
   if(found) {
     highlightedNode.color = hightedColor;
+    console.log(hightlightNode.id);
     var coods  = {x:highlightedNode['read_camcam1:x'], y:highlightedNode['read_camcam1:y'], ratio:0.1, angle:1};
     s.cameras.cam1.goTo(coods);
     hightlightNode(highlightedNode.id);
-  } 
+  }
 }

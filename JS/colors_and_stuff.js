@@ -12,6 +12,7 @@ function hightlightNode(id) {
   for(let i=0; i<ed.length; i++) {
     if(ed[i].source == id || ed[i].target == id) {
       ed[i].color = hightedColor;
+      ed[i].size = "100";
     } else {
       removeEdgeHighlight(ed[i]);
     }

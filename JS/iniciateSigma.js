@@ -11,10 +11,10 @@ $( document ).ready(function() {
       },
       settings: {
         labelColor: 'node',
-        minEdgeSize: 0.1,
-        maxEdgeSize: 2,
-        minNodeSize: 5,
-        maxNodeSize: 5,
+        minEdgeSize: 0.11;,
+        maxEdgeSize: 0.5,
+        minNodeSize: 0.1,
+        maxNodeSize: 1,
         defaultEdgeType: "arrow"
       }
     }
