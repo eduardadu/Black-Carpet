@@ -64,8 +64,6 @@
   <script src="JS/iniciateSigma.js"></script>
   <script src="JS/ui_genre_handler.js"></script>
   <script src="JS/ui_search_handler.js"></script>
-  <script src="JS/ux_ui_degrees.js"></script>
-
 
   <link rel="stylesheet" href="css/loadfonts.css">
   <link rel="stylesheet" href="css/style.css">
@@ -77,24 +75,14 @@
   </div>
 
   <div id="ui_container">
-
-    <div id="setafora">
-      <svg width="32" height="23" viewBox="0 0 32 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12.3517 21.7034L2 11.3517L12.3517 1.00001" stroke="white" stroke-width="2"/>
-        <path d="M2.54492 11.3518L31.4207 11.3518" stroke="white" stroke-width="2"/>
-      </svg>
-    </div>
-
-    <div class="sidebar ghost"></div>
-    <div class="sidebar">
-      <div id="search_container">
+    <div id="sidebar">
+      <div id="seach_container">
         <div class="ui_title" >Find Actor</div>
         <form id="search_actor" autocomplete="off">
           <span id="suggestion-container"><span id="typed"></span><span id="suggestion"></span></span>
           <input id="search_bar" value="" type="text" placeholder="John Doe">
         </form>
       </div>
-
       <div id="genre_container">
         <div class="ui_title" >Categories</div>
         <form id="genre_selector">
@@ -137,14 +125,10 @@
           <button id="genre_apply" type="button">Apply</button>
         </form>
       </div>
-
-      <div class="about_container"></div>
-
     </div>
   </div>
-  <div id="test"></div>
+  <div>
 
-    <script src="JS/ux_css_manipulation.js"></script>
-    
+  </div>
 </body>
 </html>
