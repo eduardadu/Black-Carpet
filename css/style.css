@@ -31,13 +31,25 @@ body {
 .centerbar{
   position:fixed;
   color:#110F0C;
-  opacity:0.5;
+  opacity:1;
   width:100%;
-  height:20%;
+  height:8rem;
   min-width:100px;
   pointer-events: none;
   text-align: center;
-  margin-top: 2rem;
+  top:-8rem;
+  transition: all 1s ease;
+}
+.centerbar.moveUP{
+  top:0px;
+}
+
+#centerline{
+  border-bottom: 2px solid white;
+  position:relative;
+  pointer-events: none;
+  top:6rem;
+  width:30%;
 }
 
 /* ---------------SIDEBAR*/
@@ -75,6 +87,7 @@ body {
   border: none;
   border-bottom: 2px solid white;
   color:white;
+  width:12rem;
 }
 
 #search_bar, #suggestion-container {
@@ -98,6 +111,7 @@ body {
 }
 
 #genre_selector, #search_actor {
+
 }
 
 #genre_selector> label{
@@ -118,7 +132,7 @@ button{
   display:block;
 }
 
-#genre_container, #search_container{
+#genre_container, #search_container, #about_container{
 margin-bottom:3rem;
 }
 
@@ -150,7 +164,7 @@ input[type="checkbox"] {
   right:2em;
   z-index:10;
   transform: rotate(0deg);
-  transition: transform .8s ease-in-out;  
+  transition: transform .8s ease-in-out;
 }
 
 
@@ -170,6 +184,7 @@ input[type="checkbox"] {
   font-weight: bold;
   color:white;
   font-size:2rem;
+  margin-top:2em;
   margin-bottom: 0.8rem;
   pointer-events: none;
 }
