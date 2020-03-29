@@ -34,8 +34,28 @@ $( document ).ready(function() {
       document.querySelector('#setafora').classList.remove('setaleft');
     }
     slideOut=!slideOut;
+
+});
+//----------------------------------------------------------------------------------ABOUT container
+
+var titulo= document.querySelector('#titulo');
+var about= document.querySelector('#aboutlittle');
+
+  titulo.addEventListener("mouseover", function(){
+    about.style.height="3rem";
   });
 
-//----------------------------------------------------------------------------------
 
+  titulo.addEventListener("mouseout", function(){
+    about.style.height="0rem";
+  });
+
+  about.addEventListener("mouseover", function(){
+    about.style.height="3rem";
+  });
+
+
+  about.addEventListener("mouseout", function(){
+    about.style.height="0rem";
+  });
 });
