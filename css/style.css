@@ -1,21 +1,12 @@
-container/*110F0C ---DARK COLOR*/
+/*110F0C ---DARK COLOR*/
 /* FFFFFF--- white*/
 
-* {
-  margin: 0;
-  padding: 0;
-  font-family: spaceGrotesk;
-}
+* { margin: 0; padding: 0; font-family: spaceGrotesk; }
 
-body {
-  background-color: #110F0C;
-}
+body { background-color: #110F0C;}
 
 #sigma-container {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  top: 0; bottom: 0; left: 0; right: 0;
   position: absolute;
 }
 
@@ -23,19 +14,14 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
   position: relative;
   pointer-events: auto;
-  right:0;
-  top:0;
+  right:0; top:0;
 }
 
-/*-------------------CENTERBARB----*/
+/*-----------------------------------------------CENTERBAR----*/
 .centerbar{
   position:fixed;
-
-  color:#110F0C;
-  opacity:1;
-  width:100%;
-  height:8rem;
-  min-width:100px;
+  color:#110F0C; opacity:1;
+  width:100%;   min-width:100px; height:8rem;
   text-align: center;
   top:-8rem;
   transition: all 1s ease;
@@ -56,7 +42,7 @@ body {
   display:inline-block;
   z-index: 20;
 }
-/* --------------------------ABOUT*/
+/* ------------------------------------------------------------------ABOUT*/
 #about{
   display:flex; justify-content: center;
 }
@@ -79,7 +65,7 @@ body {
   display:inline-block;
 }
 
-/* --------------------------------------------SIDEBAR*/
+/* ------------------------------------------------------------------SIDEBAR*/
 .sidebar {
   position: fixed;
   top:0;
@@ -117,6 +103,13 @@ body {
   width:12rem;
 }
 
+#search_bar:focus{
+  border: none;
+  border-bottom: 2px solid #FF3940;
+  color:white;
+  width:12rem;
+}
+
 #search_bar, #suggestion-container {
   font-family: spaceGrotesk;
   font-size: 1em;
@@ -134,7 +127,7 @@ body {
 }
 
 #suggestion{
-  color: red;
+  color: #FF3940;
 }
 /* ------------------------------------------CATEGORIAS------*/
 #genre_selector{
@@ -150,14 +143,22 @@ body {
   white-space: nowrap;
   margin-bottom: 0.1rem;
   margin-left: 0.4rem;
-  z-index: 25;
+  transition: all 0.1s linear;
 }
 
-#genre_selector> label :hover{
-  display:inline-block;
-  border-style: solid white;
+
+#genre_selector> label:hover{
+  margin-left: 1rem;
+  color:#FF3940;
+}
+#genre_selector> label:hover::before{
+  content:"— ";
+  color:#FF3940;
+  margin-left: 1rem;
+}
+.genre_box:checked + label:before{
   color:white;
-  white-space: nowrap;
+  content:"— ";
 }
 
 button{
@@ -246,6 +247,13 @@ letter-spacing: 2px;
     max-height: 30vh;
     overflow-y: auto;
   }
+  #setafora.setaleft{
+    right:200px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+
   #setafora.setaleft{
     right:200px;
   }
