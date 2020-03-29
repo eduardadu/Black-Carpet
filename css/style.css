@@ -163,14 +163,22 @@ body { background-color: #110F0C;}
 
 button{
   display:block;
-  padding: 0;
-  border: none;
+  margin-left:0.6rem;
+  border: 1px solid white;
   background: none;
   color:white;
   font: spaceGrotesk;
-  font-weight: bold;
+  font-weight: normal;
+  margin-top:0.4rem;
+  margin-bottom:0.4rem;
+  font-size:0.8rem;
+  cursor:pointer;
+  padding: 0.2rem;
 }
-
+button:hover{
+  color: #FF3940;
+  border: 1px solid #FF3940;
+}
 #genre_container, #search_container, #about_container{
 margin-bottom:3rem;
 z-index: 25;
@@ -178,6 +186,9 @@ margin-left:2rem;
 margin-right:2rem;
 bottom:0;
 }
+
+
+
 
 /* esconder as checkbox's do form */
 input[type="checkbox"] {
