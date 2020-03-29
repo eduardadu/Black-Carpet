@@ -11,6 +11,7 @@ $( document ).ready(function() {
       },
       settings: {
         labelColor: 'node',
+<<<<<<< HEAD
         minEdgeSize: 0.01,
         maxEdgeSize: 0.05,
         minNodeSize: 2,
@@ -30,6 +31,7 @@ function createGaph() {
   var items = [];
   $.getJSON( "data/data.json", function( data ) {
     saveNames(data.nodes);
+    applyCorrectColors(data);
     s.graph.read(data);
     s.refresh();
 
@@ -40,6 +42,7 @@ function createGaph() {
     });
 
   });
+
 }
 
 function saveNames(theNames) {

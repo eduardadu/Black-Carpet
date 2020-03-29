@@ -4,50 +4,52 @@
   sigma.utils.pkg('sigma.webgl.edges');
 
   /**
-   * This will render edges as thick lines using four points translated
-   * orthogonally from the source & target's centers by half thickness.
-   *
-   * Rendering two triangles by using only four points is made possible through
-   * the use of indices.
-   *
-   * This method should be faster than the 6 points / 2 triangles approach and
-   * should handle thickness better than with gl.LINES.
-   *
-   * This version of the shader balances geometry computation evenly between
-   * the CPU & GPU (normals are computed on the CPU side).
-   */
+  * This will render edges as thick lines using four points translated
+  * orthogonally from the source & target's centers by half thickness.
+  *
+  * Rendering two triangles by using only four points is made possible through
+  * the use of indices.
+  *
+  * This method should be faster than the 6 points / 2 triangles approach and
+  * should handle thickness better than with gl.LINES.
+  *
+  * This version of the shader balances geometry computation evenly between
+  * the CPU & GPU (normals are computed on the CPU side).
+  */
   sigma.webgl.edges.thickLine = {
     POINTS: 4,
     ATTRIBUTES: 6,
     addEdge: function(edge, source, target, data, i, prefix, settings) {
       var thickness = (edge[prefix + 'size'] || 1),
-          x1 = source[prefix + 'x'],
-          y1 = source[prefix + 'y'],
-          x2 = target[prefix + 'x'],
-          y2 = target[prefix + 'y'],
-          color = edge.color;
+      x1 = source[prefix + 'x'],
+      y1 = source[prefix + 'y'],
+      x2 = target[prefix + 'x'],
+      y2 = target[prefix + 'y'],
+      color = edge.color;
 
       if (!color)
-        switch (settings('edgeColor')) {
-          case 'source':
-            color = source.color || settings('defaultNodeColor');
-            break;
-          case 'target':
-            color = target.color || settings('defaultNodeColor');
-            break;
-          default:
-            color = settings('defaultEdgeColor');
-            break;
-        }
+      switch (settings('edgeColor')) {
+        case 'source':
+        color = source.color || settings('defaultNodeColor');
+        break;
+        case 'target':
+        color = target.color || settings('defaultNodeColor');
+        break;
+        default:
+        color = settings('defaultEdgeColor');
+        break;
+      }
 
       // Normalize color:
       color = sigma.utils.floatColor(color);
+    
+
 
       // Computing normals:
       var dx = x2 - x1,
-          dy = y2 - y1,
-          len = dx * dx + dy * dy,
-          normals;
+      dy = y2 - y1,
+      len = dx * dx + dy * dy,
+      normals;
 
       if (!len) {
         normals = [0, 0];
@@ -83,7 +85,7 @@
       data[i++] = normals[0];
       data[i++] = normals[1];
       data[i++] = thickness;
-      data[i++] = color;
+      data[i++] = color2;
 
       // Second point flipped
       data[i++] = x2;
@@ -91,14 +93,14 @@
       data[i++] = -normals[0];
       data[i++] = -normals[1];
       data[i++] = thickness;
-      data[i++] = color;
+      data[i++] = color2;
     },
     computeIndices: function(data) {
       var indices = new Uint16Array(data.length * 6),
-          c = 0,
-          i = 0,
-          j,
-          l;
+      c = 0,
+      i = 0,
+      j,
+      l;
 
       for (j = 0, l = data.length / this.ATTRIBUTES; i < l; i++) {
         indices[c++] = i + 0;
@@ -116,19 +118,19 @@
 
       // Define attributes:
       var positionLocation =
-            gl.getAttribLocation(program, 'a_position'),
-          normalLocation =
-            gl.getAttribLocation(program, 'a_normal'),
-          thicknessLocation =
-            gl.getAttribLocation(program, 'a_thickness'),
-          colorLocation =
-            gl.getAttribLocation(program, 'a_color'),
-          resolutionLocation =
-            gl.getUniformLocation(program, 'u_resolution'),
-          ratioLocation =
-            gl.getUniformLocation(program, 'u_ratio'),
-          matrixLocation =
-            gl.getUniformLocation(program, 'u_matrix');
+      gl.getAttribLocation(program, 'a_position'),
+      normalLocation =
+      gl.getAttribLocation(program, 'a_normal'),
+      thicknessLocation =
+      gl.getAttribLocation(program, 'a_thickness'),
+      colorLocation =
+      gl.getAttribLocation(program, 'a_color'),
+      resolutionLocation =
+      gl.getUniformLocation(program, 'u_resolution'),
+      ratioLocation =
+      gl.getUniformLocation(program, 'u_ratio'),
+      matrixLocation =
+      gl.getUniformLocation(program, 'u_matrix');
 
       // Creating buffer:
       var buffer = gl.createBuffer();
@@ -194,8 +196,8 @@
     },
     initProgram: function(gl) {
       var vertexShader,
-          fragmentShader,
-          program;
+      fragmentShader,
+      program;
 
       vertexShader = sigma.utils.loadShader(
         gl,
@@ -213,21 +215,21 @@
 
           'void main() {',
 
-            // Scale from [[-1 1] [-1 1]] to the container:
-            'vec2 delta = vec2(a_normal * a_thickness / 2.0);',
-            'vec2 position = (u_matrix * vec3(a_position + delta, 1)).xy;',
-            'position = (position / u_resolution * 2.0 - 1.0) * vec2(1, -1);',
+          // Scale from [[-1 1] [-1 1]] to the container:
+          'vec2 delta = vec2(a_normal * a_thickness / 2.0);',
+          'vec2 position = (u_matrix * vec3(a_position + delta, 1)).xy;',
+          'position = (position / u_resolution * 2.0 - 1.0) * vec2(1, -1);',
 
-            // Applying
-            'gl_Position = vec4(position, 0, 1);',
-            'gl_PointSize = 10.0;',
+          // Applying
+          'gl_Position = vec4(position, 0, 1);',
+          'gl_PointSize = 10.0;',
 
-            // Extract the color:
-            'float c = a_color;',
-            'v_color.b = mod(c, 256.0); c = floor(c / 256.0);',
-            'v_color.g = mod(c, 256.0); c = floor(c / 256.0);',
-            'v_color.r = mod(c, 256.0); c = floor(c / 256.0); v_color /= 255.0;',
-            'v_color.a = 1.0;',
+          // Extract the color:
+          'float c = a_color;',
+          'v_color.b = mod(c, 256.0); c = floor(c / 256.0);',
+          'v_color.g = mod(c, 256.0); c = floor(c / 256.0);',
+          'v_color.r = mod(c, 256.0); c = floor(c / 256.0); v_color /= 255.0;',
+          'v_color.a = 1.0;',
           '}'
         ].join('\n'),
         gl.VERTEX_SHADER
@@ -241,7 +243,7 @@
           'varying vec4 v_color;',
 
           'void main(void) {',
-            'gl_FragColor = v_color;',
+          'gl_FragColor = v_color;',
           '}'
         ].join('\n'),
         gl.FRAGMENT_SHADER

@@ -38,7 +38,6 @@
 
       // Normalize color:
       color = sigma.utils.floatColor(color);
-
       data[i++] = x1;
       data[i++] = y1;
       data[i++] = x2;

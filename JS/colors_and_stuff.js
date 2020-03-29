@@ -1,33 +1,32 @@
 //Cores globais
-var hightedColor = "rgb(255, 0, 0)";
+var deSelected = "rgb(20, 20, 20)";
+var edgeColor = "rgb(200, 200, 200)"
+var female_color = "rgb(98, 233, 208)";
+var male_color = "rgb(255, 57, 64)";
+var no_gender_color = "rgb(223, 213, 236)";
 
-var female_color = "rgb(255, 0, 255)";
-var male_color = "rgb(0, 0, 255)";
-var no_gender_color = "rgb(255, 255, 0)";
 
-
-
-function hightlightNode(id) {
+var sColors = [];
+function hightlightNode(node) {
+  sColors = [];
   var ed = s.graph.edges();
   for(let i=0; i<ed.length; i++) {
-    if(ed[i].source == id || ed[i].target == id) {
-      HightlightEdge(ed[i]);
+    sColors.push(ed[i].color);
+    if(!(ed[i].source == node.id || ed[i].target == node.id)) {
+      ed[i].color = deSelected;
     } else {
-      removeEdgeHighlight(ed[i]);
+      //removeEdgeHighlight(ed[i], node);
     }
   }
-
   s.refresh();
 }
 
-function HightlightEdge(edg) {
-  edg.color = hightedColor;
-}
-
-
 function removeNodeHighlight(node) {
-}
-
-
-function removeEdgeHighlight(node) {
+  var ed = s.graph.edges();
+  for(let i=0; i<ed.length; i++) {
+    if(!(ed[i].source == node.id && ed[i].target == node.id)) {
+      ed[i].color = sColors[i];
+    }
+  }
+  s.refresh();
 }

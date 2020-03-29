@@ -1,7 +1,7 @@
 var hiddenEdges = [];
 
 $( document ).ready(function() {
-  $("#genre_selector :input").change(function() {
+  $("#genre_apply").click(function() {
     var boxes = document.querySelector("#genre_selector").children;
     var selected = [];
     for(let i=0; i<boxes.length; i++) {
@@ -12,7 +12,6 @@ $( document ).ready(function() {
 
     if(selected.length > 0) {
       var getEdges = s.graph.edges();
-
       //Verificar se há alguma edge escondida para adicionar
       //Aqui o ciclo tem de correr ao contrário por causa do .pop (que altera os index's)
       for(let j = hiddenEdges.length - 1; j >= 0 ; j--) {
@@ -46,6 +45,7 @@ $( document ).ready(function() {
         if(sumVisibleEdges <= 0 ) {
           //Remove edge
           hiddenEdges.push(currentEdge);
+          
           s.graph.dropEdge(currentEdge.id);
         }
       }
