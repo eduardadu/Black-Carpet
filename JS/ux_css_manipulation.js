@@ -8,17 +8,22 @@ $( document ).ready(function() {
 
 //---------------------------------------------------------------SIDEBAR IN AND OUT
   seta.addEventListener("click", function(){
-    var width = document.body.clientWidth;
+
     if(slideOut==false){
       for(var i=0; i<bar.length;i++){
-        bar[i].style.left="auto";
-        bar[i].style.right="0px";
-        bar[i].classList.add('aniSlidebar');
+
+      //  bar[i].style.left="auto";
+      //  bar[i].style.right="0%";
+        bar[i].classList.add('move');
+        bar[i].style.minWidth=  "200px";
+        document.querySelector('#search_container').style.marginRight=  "2 rem";
       }
     }else{
       for(var i=0; i<bar.length;i++){
-        bar[i].style.left='"' + width + '"';
-        bar[i].style.right="auto";
+            document.querySelector('#search_container').style.marginRight=  "0 rem";
+            bar[i].classList.remove('move');
+            bar[i].style.minWidth=  "0px";
+
       }
     }
     slideOut=!slideOut;
