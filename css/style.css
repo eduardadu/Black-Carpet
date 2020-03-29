@@ -1,21 +1,12 @@
-container/*110F0C ---DARK COLOR*/
+/*110F0C ---DARK COLOR*/
 /* FFFFFF--- white*/
 
-* {
-  margin: 0;
-  padding: 0;
-  font-family: spaceGrotesk;
-}
+* { margin: 0; padding: 0; font-family: spaceGrotesk; }
 
-body {
-  background-color: #110F0C;
-}
+body { background-color: #110F0C;}
 
 #sigma-container {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  top: 0; bottom: 0; left: 0; right: 0;
   position: absolute;
 }
 
@@ -23,49 +14,100 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
   position: relative;
   pointer-events: auto;
-  right:0;
-  top:0;
+  right:0; top:0;
 }
 
-/* ---------------SIDEBAR*/
+/*-----------------------------------------------CENTERBAR----*/
+.centerbar{
+  position:fixed;
+  color:#110F0C; opacity:1;
+  width:100%;   min-width:100px; height:8rem;
+  text-align: center;
+  top:-8rem;
+  transition: all 1s ease;
+
+}
+.centerbar.moveUP{
+  top:0px;
+}
+
+#centerline{
+  position:relative;
+  border-bottom: 2px solid white;
+  pointer-events: none;
+  top: 7rem;
+  width:30%;
+  min-width:10rem;
+  max-width:18rem;
+  display:inline-block;
+  z-index: 20;
+}
+/* ------------------------------------------------------------------ABOUT*/
+#about{
+  display:flex; justify-content: center;
+}
+
+#aboutlittle{
+  margin-top:0.5rem;
+  position:absolute;
+  background-color: #110f0C;
+  opacity:0.8;
+  height:0rem; width:30%;
+  min-width:10rem; max-width:18rem;
+  color:white;
+  font-family: spaceGrotesk; font-weight: normal; font-size:0.8rem;
+  overflow: hidden;
+  transition: all 0.6s ease;
+}
+#aboutlittle span{
+  padding:0.2rem;
+  margin-top:0.3rem;
+  display:inline-block;
+}
+
+/* ------------------------------------------------------------------SIDEBAR*/
 .sidebar {
   position: fixed;
-  left: 100%;
   top:0;
-  right:auto;
-  min-width: 200px;
-  width:15%;
+  width:0%;
+  overflow-x: visible;
   height:100%;
-  padding: 2rem;
   opacity: 1;
-  padding-top:4em;
+  right:0%;
+  transition: all 0.8s ease;
+  min-width:0px;
+  display: flex;
+  align-items: flex-end;
 }
 .ghost{
   background-color: #110F0C;
   opacity:0.5;
   pointer-events: none;
 }
-.aniSlidebar{
-  animation-name: cssAnimation;
-  animation-duration:3s;
-  iteration-count: 1;
-  timing-function: ease;
-}
-@-webkit-keyframes slidebar {
-  from {
-    right:auto;
-  }
-  to {
-    right:0;
-  }
+
+.sidebar.move{
+  width:20%;
 }
 
-/* -------------------SEARCHBAR------*/
+.sidebarCONT{
+  align-items: flex-end;
+  bottom:2rem;
+}
+
+/* ------------------------------------------SEARCHBAR------*/
 
 #search_bar {
   border: none;
   border-bottom: 2px solid white;
   color:white;
+  width:12rem;
+}
+
+#search_bar:focus{
+  border: none;
+  border-bottom: 2px solid #FF3940;
+  color:white;
+  width:12rem;
 }
 
 #search_bar, #suggestion-container {
@@ -85,31 +127,77 @@ body {
 }
 
 #suggestion{
-  color: red;
+  color: #FF3940;
 }
-
-
-#genre_selector, #search_actor {
-
+/* ------------------------------------------CATEGORIAS------*/
+#genre_selector{
+  max-height: 60vh;
+  overflow-y: auto;
 }
-
-#genre_selector > label {
+#genre_selector> label{
   display: block;
-  color: white;
+  color: #dbdbdb;
   font-family: spaceGrotesk;
-  font-size: 1rem;
-  line-height: 1.2rem;
+  font-size: 0.8rem;
+  padding:0.2rem;
+  white-space: nowrap;
+  margin-bottom: 0.1rem;
+  margin-left: 0.4rem;
+  transition: all 0.1s linear;
 }
-#genre_selector: hover{
-  border-style: solid;
-}
+
 
 
 #genre_container, #search_container{
   margin-bottom:3rem;
 }
 
-/* esconder as checkbox's do form de genres */
+
+
+#genre_selector> label:hover{
+  margin-left: 1rem;
+  color:#FF3940;
+}
+#genre_selector> label:hover::before{
+  content:"— ";
+  color:#FF3940;
+  margin-left: 1rem;
+}
+.genre_box:checked + label:before{
+  color:white;
+  content:"— ";
+}
+
+button{
+  display:block;
+  margin-left:0.6rem;
+  border: 1px solid white;
+  background: none;
+  color:white;
+  font: spaceGrotesk;
+  font-weight: normal;
+  margin-top:0.4rem;
+  margin-bottom:0.4rem;
+  font-size:0.8rem;
+  cursor:pointer;
+  padding: 0.2rem;
+}
+button:hover{
+  color: #FF3940;
+  border: 1px solid #FF3940;
+}
+#genre_container, #search_container, #about_container{
+  margin-bottom:3rem;
+  z-index: 25;
+  margin-left:2rem;
+  margin-right:2rem;
+  bottom:0;
+}
+
+
+
+
+/* esconder as checkbox's do form */
 input[type="checkbox"] {
   position: absolute;
   visibility: hidden;
@@ -127,22 +215,64 @@ input[type="checkbox"] {
   color: red;
   border-color: #e83737;
 }
+
+/* -------------------SETA------*/
+#setafora{
+  width:auto;
+  display:inline-block;
+  position:fixed;
+  top:45%;
+  right:2em;
+  z-index:10;
+  transform: rotate(0deg);
+  transition: transform .8s, right .8s ;
+}
+#setafora.setaleft{
+  right:20%;
+}
+
 /* -------------------TEXTO------*/
 
 .ui_title {
   font-family: spaceGrotesk;
   font-weight: bold;
   color:white;
-  font-size:1.9rem;
+  font-size:1.5rem;
   margin-bottom: 0.8rem;
+  white-space: pre;
 }
 
-/* ---------------seta*/
+#name_Title{
+  font-family: spaceGrotesk;
+  font-weight: bold;
+  color:white;
+  font-size:2rem;
+  margin-top:2.2em;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+#titulo{
+  cursor:pointer;
+  height:2.5rem;
+  height:100%;
+  padding-bottom: 0.8rem;
+}
 
+/* ---------------media query*/
 
+@media only screen and (max-height: 600px) {
+  #genre_selector{
+    max-height: 30vh;
+    overflow-y: auto;
+  }
+  #setafora.setaleft{
+    right:200px;
+  }
+}
 
+@media only screen and (max-width: 800px) {
 
-#actor_info {
-  color: white;
-  position: fixed;
+  #setafora.setaleft{
+    right:200px;
+  }
 }
