@@ -43,24 +43,27 @@ function getSuggestion(query) {
 
 function goToNode(actorN) {
   console.log("Searching "+actorN);
-
-  var found = false;
-  if(highlightedNode != null) {
-    removeNodeHighlight(highlightedNode);
-  }
-
-  for(let i=0; i<s.graph.nodes().length; i++) {
-    if(s.graph.nodes()[i].label === actorN) {
-      highlightedNode = s.graph.nodes()[i];
-      found = true;
+  if(actorN == "€") {
+    if(highlightedNode != null) {
+      removeNodeHighlight(highlightedNode);
     }
-  }
+  } else {
+    var found = false;
+    if(highlightedNode != null) {
+      removeNodeHighlight(highlightedNode);
+    }
 
-  if(found) {
-    highlightedNode.color = hightedColor;
-    console.log(hightlightNode.id);
-    var coods  = {x:highlightedNode['read_camcam1:x'], y:highlightedNode['read_camcam1:y'], ratio:0.1, angle:1};
-    s.cameras.cam1.goTo(coods);
-    hightlightNode(highlightedNode.id);
+    for(let i=0; i<s.graph.nodes().length; i++) {
+      if(s.graph.nodes()[i].label === actorN) {
+        highlightedNode = s.graph.nodes()[i];
+        found = true;
+      }
+    }
+
+    if(found) {
+      var coods  = {x:highlightedNode['read_camcam1:x'], y:highlightedNode['read_camcam1:y'], ratio:0.1, angle:1};
+      s.cameras.cam1.goTo(coods);
+      hightlightNode(highlightedNode);
+    }
   }
 }

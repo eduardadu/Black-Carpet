@@ -78,7 +78,7 @@
     <div id="sidebar">
       <div id="seach_container">
         <div class="ui_title" >Find Actor</div>
-        <form id="search_actor">
+        <form id="search_actor" autocomplete="off">
           <span id="suggestion-container"><span id="typed"></span><span id="suggestion"></span></span>
           <input id="search_bar" value="" type="text" placeholder="John Doe">
         </form>
@@ -114,14 +114,15 @@
           <label for="music">Music</label>
           <input class="genre_box" id="romance" type="checkbox" name="romance" value="romance" checked>
           <label for="romance">Romance</label>
-          <input class="genre_box" id="scifi" type="checkbox" name="scifi" value="scifi" checked>
-          <label for="scifi">Science Fiction</label>
+          <input class="genre_box" id="scifi" type="checkbox" name="science fiction" value="science fiction" checked>
+          <label for="science fiction">Science Fiction</label>
           <input class="genre_box" id="thriller" type="checkbox" name="thriller" value="thriller" checked>
           <label for="thriller">Thriller</label>
           <input class="genre_box" id="war" type="checkbox" name="war" value="war" checked>
           <label for="war">War</label>
           <input class="genre_box" id="western" type="checkbox" name="western" value="western" checked>
           <label for="western">Western</label>
+          <button id="genre_apply" type="button">Apply</button>
         </form>
       </div>
     </div>
