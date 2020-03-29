@@ -11,7 +11,6 @@ $( document ).ready(function() {
       },
       settings: {
         labelColor: 'node',
-
         //defaultEdgeType: "thickLine",
         //defaultNodeType: "fast"
 

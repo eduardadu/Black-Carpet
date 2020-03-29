@@ -30,18 +30,33 @@ body {
 /* ---------------SIDEBAR*/
 .sidebar {
   position: fixed;
-  right: 0;
+  left: 100%;
   top:0;
-  min-width: 80px;
+  right:auto;
+  min-width: 200px;
   width:15%;
   height:100%;
   padding: 2rem;
   opacity: 1;
-
+  padding-top:4em;
 }
 .ghost{
   background-color: #110F0C;
   opacity:0.5;
+}
+.aniSlidebar{
+  animation-name: cssAnimation;
+  animation-duration:3s;
+  iteration-count: 1;
+  timing-function: ease;
+}
+@-webkit-keyframes slidebar {
+  from {
+    right:auto;
+  }
+  to {
+    right:0;
+  }
 }
 
 /* -------------------SEARCHBAR------*/
@@ -58,8 +73,8 @@ body {
   padding: 4px;
   margin: 0;
   background-color: #110F0C;
-
-
+  color:white;
+  opacity:0.9;
 }
 
 #suggestion-container {
