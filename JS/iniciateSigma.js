@@ -20,10 +20,19 @@ $( document ).ready(function() {
 
         //defaultEdgeType: "thickLine",
         //defaultNodeType: "fast"
+=======
+        minEdgeSize: 0.001,
+        maxEdgeSize: 0.1,
+        minNodeSize: 0.5,
+        maxNodeSize: 4,
+        defaultEdgeType: 'thickLine',
+        defaultNodeType: 'fast'
+>>>>>>> 13c3d6fe36f421bf26780351aa75e1441b3d0157
       }
     }
   );
   createGaph();
+
 });
 
 //Lê o JSON
@@ -47,6 +56,36 @@ function createGaph() {
 
 function saveNames(theNames) {
   for(let i = 0; i < theNames.length; i++) {
-      actorNames.push(theNames[i].label);
+    actorNames.push(theNames[i].label);
   }
+}
+
+function applyCorrectColors(data) {
+
+  data.edges.forEach((item, i) => {
+    var sId = item.source;
+    var sGender = data.nodes[sId].attributes.gender;
+    if(sGender == 0) {
+      item.color = no_gender_color;
+    } else if(sGender == 1) {
+      item.color = female_color;
+    } else if(sGender == 2) {
+      item.color = male_color;
+    }
+    //item.color = edgeColor;
+  });
+
+  data.nodes.forEach((item, i) => {
+    var gender = item.attributes.gender;
+    if(gender == 0) {
+      item.color = no_gender_color;
+    } else if(gender == 1) {
+      item.color = female_color;
+    } else if(gender == 2) {
+      item.color = male_color;
+    }
+
+  });
+
+
 }
