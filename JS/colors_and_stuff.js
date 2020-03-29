@@ -1,32 +1,64 @@
 //Cores globais
 var deSelected = "rgb(20, 20, 20)";
 var edgeColor = "rgb(200, 200, 200)"
-var female_color = "rgb(98, 233, 208)";
-var male_color = "rgb(255, 57, 64)";
+
+//Edges
+var female_color = "rgb(80, 191, 171)";
+var male_color = "rgb(191, 43, 48)";
 var no_gender_color = "rgb(223, 213, 236)";
 
+//Nodes
+var node_no_gender_color = "rgb(188, 167, 215)";
+var node_female_color = "rgb(98, 233, 208)";
+var node_male_color = "rgb(255, 57, 64)";
 
-var sColors = [];
-function hightlightNode(node) {
-  sColors = [];
-  var ed = s.graph.edges();
-  for(let i=0; i<ed.length; i++) {
-    sColors.push(ed[i].color);
-    if(!(ed[i].source == node.id || ed[i].target == node.id)) {
-      ed[i].color = deSelected;
-    } else {
-      //removeEdgeHighlight(ed[i], node);
-    }
+
+
+function changeNodeColor(node) {
+  var gender = node.attributes.gender;
+  if(gender == 0) {
+    node.color = node_no_gender_color;
+  } else if(gender == 1) {
+    node.color = node_female_color;
+  } else if(gender == 2) {
+    node.color = node_male_color;
   }
-  s.refresh();
 }
 
-function removeNodeHighlight(node) {
-  var ed = s.graph.edges();
-  for(let i=0; i<ed.length; i++) {
-    if(!(ed[i].source == node.id && ed[i].target == node.id)) {
-      ed[i].color = sColors[i];
-    }
+
+function changeEdgeColor(edge) {
+  var ref = edge.attributes.genders.split("-");
+  var c_1 = "rgb(0,0,0)";
+  var c_2 = "rgb(0,0,0)";
+  switch(parseInt(ref[0])) {
+    case 2:
+    c_1 = male_color;
+    break;
+    case 1:
+    c_1 = female_color;
+    break;
+    case 0:
+    c_1 = no_gender_color;
+    break;
   }
-  s.refresh();
+  switch(parseInt(ref[1])) {
+    case 2:
+    c_2 = male_color;
+    break;
+    case 1:
+    c_2 = female_color;
+    break;
+    case 0:
+    c_2 = no_gender_color;
+    break;
+  }
+  edge.color = blend_colors(c_1, c_2);
+}
+
+
+
+function blend_colors(color1, color2){
+  var c1 = color1.slice(4, color1.length-1).split(",");
+  var c2 = color2.slice(4, color2.length-1).split(",");
+  return "rgb("+Math.floor((parseInt(c1[0]) + parseInt(c2[0]))/2)+","+Math.floor((parseInt(c1[1]) + parseInt(c2[1]))/2)+","+Math.floor((parseInt(c1[2]) + parseInt(c2[2]))/2)+")";
 }

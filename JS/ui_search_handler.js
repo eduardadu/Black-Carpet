@@ -1,5 +1,3 @@
-var highlightedNode = null;
-
 $( document ).ready(function() {
   var guess = "€";
   var suggestion = document.getElementById("suggestion");
@@ -43,27 +41,21 @@ function getSuggestion(query) {
 
 function goToNode(actorN) {
   console.log("Searching "+actorN);
-  if(actorN == "€") {
-    if(highlightedNode != null) {
-      removeNodeHighlight(highlightedNode);
-    }
-  } else {
+  if(actorN != "€") {
+    resetHighlights();
     var found = false;
-    if(highlightedNode != null) {
-      removeNodeHighlight(highlightedNode);
-    }
-
     for(let i=0; i<s.graph.nodes().length; i++) {
       if(s.graph.nodes()[i].label === actorN) {
-        highlightedNode = s.graph.nodes()[i];
+        parentNode = s.graph.nodes()[i];
         found = true;
       }
     }
 
     if(found) {
-      var coods  = {x:highlightedNode['read_camcam1:x'], y:highlightedNode['read_camcam1:y'], ratio:0.1, angle:1};
+      displayActorInfo(parentNode);
+      var coods  = {x:parentNode['read_camcam1:x'], y:parentNode['read_camcam1:y'], ratio:0.3, angle:1};
       s.cameras.cam1.goTo(coods);
-      hightlightNode(highlightedNode);
+      hightlightNode_range(parentNode, 1);
     }
   }
 }

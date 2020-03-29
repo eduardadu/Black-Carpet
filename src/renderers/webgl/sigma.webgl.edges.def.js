@@ -4,38 +4,47 @@
   sigma.utils.pkg('sigma.webgl.edges');
 
   /**
-   * This edge renderer will display edges as lines going from the source node
-   * to the target node. To deal with edge thicknesses, the lines are made of
-   * two triangles forming rectangles, with the gl.TRIANGLES drawing mode.
-   *
-   * It is expensive, since drawing a single edge requires 6 points, each
-   * having 7 attributes (source position, target position, thickness, color
-   * and a flag indicating which vertice of the rectangle it is).
-   */
+  * This edge renderer will display edges as lines going from the source node
+  * to the target node. To deal with edge thicknesses, the lines are made of
+  * two triangles forming rectangles, with the gl.TRIANGLES drawing mode.
+  *
+  * It is expensive, since drawing a single edge requires 6 points, each
+  * having 7 attributes (source position, target position, thickness, color
+  * and a flag indicating which vertice of the rectangle it is).
+  */
   sigma.webgl.edges.def = {
     POINTS: 6,
     ATTRIBUTES: 7,
     addEdge: function(edge, source, target, data, i, prefix, settings) {
       var w = (edge[prefix + 'size'] || 1) / 2,
-          x1 = source[prefix + 'x'],
-          y1 = source[prefix + 'y'],
-          x2 = target[prefix + 'x'],
-          y2 = target[prefix + 'y'],
-          color = edge.color;
+
+      x1 = source[prefix + 'x'],
+      y1 = source[prefix + 'y'],
+      x2 = target[prefix + 'x'],
+      y2 = target[prefix + 'y'],
+
+      color = edge.color;
+
+      if(color == deSelected) {
+        x1 = -1000;
+        y1 = -1000;
+        x2 = -1000;
+        y2 = -1000;
+      }
+
 
       if (!color)
-        switch (settings('edgeColor')) {
-          case 'source':
-            color = source.color || settings('defaultNodeColor');
-            break;
-          case 'target':
-            color = target.color || settings('defaultNodeColor');
-            break;
-          default:
-            color = settings('defaultEdgeColor');
-            break;
-        }
-
+      switch (settings('edgeColor')) {
+        case 'source':
+        color = source.color || settings('defaultNodeColor');
+        break;
+        case 'target':
+        color = target.color || settings('defaultNodeColor');
+        break;
+        default:
+        color = settings('defaultEdgeColor');
+        break;
+      }
       // Normalize color:
       color = sigma.utils.floatColor(color);
       data[i++] = x1;
@@ -91,27 +100,27 @@
 
       // Define attributes:
       var colorLocation =
-            gl.getAttribLocation(program, 'a_color'),
-          positionLocation1 =
-            gl.getAttribLocation(program, 'a_position1'),
-          positionLocation2 =
-            gl.getAttribLocation(program, 'a_position2'),
-          thicknessLocation =
-            gl.getAttribLocation(program, 'a_thickness'),
-          minusLocation =
-            gl.getAttribLocation(program, 'a_minus'),
-          resolutionLocation =
-            gl.getUniformLocation(program, 'u_resolution'),
-          matrixLocation =
-            gl.getUniformLocation(program, 'u_matrix'),
-          matrixHalfPiLocation =
-            gl.getUniformLocation(program, 'u_matrixHalfPi'),
-          matrixHalfPiMinusLocation =
-            gl.getUniformLocation(program, 'u_matrixHalfPiMinus'),
-          ratioLocation =
-            gl.getUniformLocation(program, 'u_ratio'),
-          scaleLocation =
-            gl.getUniformLocation(program, 'u_scale');
+      gl.getAttribLocation(program, 'a_color'),
+      positionLocation1 =
+      gl.getAttribLocation(program, 'a_position1'),
+      positionLocation2 =
+      gl.getAttribLocation(program, 'a_position2'),
+      thicknessLocation =
+      gl.getAttribLocation(program, 'a_thickness'),
+      minusLocation =
+      gl.getAttribLocation(program, 'a_minus'),
+      resolutionLocation =
+      gl.getUniformLocation(program, 'u_resolution'),
+      matrixLocation =
+      gl.getUniformLocation(program, 'u_matrix'),
+      matrixHalfPiLocation =
+      gl.getUniformLocation(program, 'u_matrixHalfPi'),
+      matrixHalfPiMinusLocation =
+      gl.getUniformLocation(program, 'u_matrixHalfPiMinus'),
+      ratioLocation =
+      gl.getUniformLocation(program, 'u_ratio'),
+      scaleLocation =
+      gl.getUniformLocation(program, 'u_scale');
 
       buffer = gl.createBuffer();
       gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
@@ -185,8 +194,8 @@
     },
     initProgram: function(gl) {
       var vertexShader,
-          fragmentShader,
-          program;
+      fragmentShader,
+      program;
 
       vertexShader = sigma.utils.loadShader(
         gl,
@@ -207,29 +216,29 @@
           'varying vec4 color;',
 
           'void main() {',
-            // Find the good point:
-            'vec2 position = a_thickness * u_ratio *',
-              'normalize(a_position2 - a_position1);',
+          // Find the good point:
+          'vec2 position = a_thickness * u_ratio *',
+          'normalize(a_position2 - a_position1);',
 
-            'mat2 matrix = a_minus * u_matrixHalfPiMinus +',
-              '(1.0 - a_minus) * u_matrixHalfPi;',
+          'mat2 matrix = a_minus * u_matrixHalfPiMinus +',
+          '(1.0 - a_minus) * u_matrixHalfPi;',
 
-            'position = matrix * position + a_position1;',
+          'position = matrix * position + a_position1;',
 
-            // Scale from [[-1 1] [-1 1]] to the container:
-            'gl_Position = vec4(',
-              '((u_matrix * vec3(position, 1)).xy /',
-                'u_resolution * 2.0 - 1.0) * vec2(1, -1),',
-              '0,',
-              '1',
-            ');',
+          // Scale from [[-1 1] [-1 1]] to the container:
+          'gl_Position = vec4(',
+          '((u_matrix * vec3(position, 1)).xy /',
+          'u_resolution * 2.0 - 1.0) * vec2(1, -1),',
+          '0,',
+          '1',
+          ');',
 
-            // Extract the color:
-            'float c = a_color;',
-            'color.b = mod(c, 256.0); c = floor(c / 256.0);',
-            'color.g = mod(c, 256.0); c = floor(c / 256.0);',
-            'color.r = mod(c, 256.0); c = floor(c / 256.0); color /= 255.0;',
-            'color.a = 1.0;',
+          // Extract the color:
+          'float c = a_color;',
+          'color.b = mod(c, 256.0); c = floor(c / 256.0);',
+          'color.g = mod(c, 256.0); c = floor(c / 256.0);',
+          'color.r = mod(c, 256.0); c = floor(c / 256.0); color /= 255.0;',
+          'color.a = 1.0;',
           '}'
         ].join('\n'),
         gl.VERTEX_SHADER
@@ -243,7 +252,7 @@
           'varying vec4 color;',
 
           'void main(void) {',
-            'gl_FragColor = color;',
+          'gl_FragColor = color;',
           '}'
         ].join('\n'),
         gl.FRAGMENT_SHADER

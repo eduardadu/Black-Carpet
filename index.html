@@ -61,9 +61,11 @@
 
   <!-- Javascript -->
   <script src="JS/colors_and_stuff.js"></script>
+  <script src="JS/actor_info.js"></script>
   <script src="JS/iniciateSigma.js"></script>
   <script src="JS/ui_genre_handler.js"></script>
   <script src="JS/ui_search_handler.js"></script>
+
 
   <link rel="stylesheet" href="css/loadfonts.css">
   <link rel="stylesheet" href="css/style.css">
@@ -138,7 +140,12 @@
     </div>
   </div>
   <div id="actor_info">
-
+    <img src="" width="100px">
+    <span id="actor_name">Nome do ator</span>
+    <span><a id="actor_link" href="" target="_blank">Visit TMDB profile</a></span>
+    <input id="actor_degree" type="range" min="1" max="6" value="1" class="slider">
+    <span id="degree_val">1</span>
+    <span id="actor_info_cancel">CANCEL</span>
   </div>
   <script src="JS/ux_css_manipulation.js"></script>
 </body>

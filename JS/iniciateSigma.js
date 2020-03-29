@@ -1,5 +1,7 @@
 var s;
 var actorNames = [];
+var edgeSelectedSizeInc = 3;
+
 
 $( document ).ready(function() {
   s = new sigma(
@@ -11,16 +13,12 @@ $( document ).ready(function() {
       },
       settings: {
         labelColor: 'node',
-        //defaultEdgeType: "thickLine",
-        //defaultNodeType: "fast"
-
-        minEdgeSize: 0.001,
-        maxEdgeSize: 0.1,
-        minNodeSize: 0.5,
-        maxNodeSize: 4,
+        minEdgeSize: 0.01,
+        maxEdgeSize: 0.5,
+        minNodeSize: 0.1,
+        maxNodeSize: 1.5,
         defaultEdgeType: 'thickLine',
         defaultNodeType: 'fast'
-
       }
     }
   );
@@ -34,13 +32,14 @@ function createGaph() {
   $.getJSON( "data/data.json", function( data ) {
     saveNames(data.nodes);
     applyCorrectColors(data);
+    resizeEdges(data);
     s.graph.read(data);
     s.refresh();
 
-
     s.bind(' clickNode', function(e) {
-      console.log(e.type, e.data.node.label, e.data.captor);
-
+      resetHighlights();
+      displayActorInfo(e.data.node);
+      hightlightNode_range(e.data.node, 1);
     });
 
   });
@@ -54,31 +53,32 @@ function saveNames(theNames) {
 }
 
 function applyCorrectColors(data) {
-
   data.edges.forEach((item, i) => {
-    var sId = item.source;
-    var sGender = data.nodes[sId].attributes.gender;
-    if(sGender == 0) {
-      item.color = no_gender_color;
-    } else if(sGender == 1) {
-      item.color = female_color;
-    } else if(sGender == 2) {
-      item.color = male_color;
-    }
-    //item.color = edgeColor;
+    changeEdgeColor(item);
   });
 
   data.nodes.forEach((item, i) => {
-    var gender = item.attributes.gender;
-    if(gender == 0) {
-      item.color = no_gender_color;
-    } else if(gender == 1) {
-      item.color = female_color;
-    } else if(gender == 2) {
-      item.color = male_color;
-    }
-
+    changeNodeColor(item);
   });
-
-
 }
+
+function resizeEdges(data) {
+  data.edges.forEach((item, i) => {
+    item.size = parseInt(item.attributes.weigth);
+  });
+}
+
+sigma.classes.graph.addMethod('adjacentEdges', function(id) {
+  if (typeof id !== 'string')
+  throw 'adjacentEdges: the node id must be a string.';
+  var a = this.allNeighborsIndex[id],
+  eid,
+  target,
+  edges = [];
+  for(target in a) {
+    for(eid in a[target]) {
+      edges.push(a[target][eid]);
+    }
+  }
+  return edges;
+});

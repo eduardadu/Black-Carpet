@@ -106,7 +106,7 @@ body {
 
 
 #genre_container, #search_container{
-margin-bottom:3rem;
+  margin-bottom:3rem;
 }
 
 /* esconder as checkbox's do form de genres */
@@ -138,3 +138,11 @@ input[type="checkbox"] {
 }
 
 /* ---------------seta*/
+
+
+
+
+#actor_info {
+  color: white;
+  position: fixed;
+}

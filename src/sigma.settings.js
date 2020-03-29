@@ -46,52 +46,52 @@
     // {number} Defines the minimal edge's arrow display size.
     minArrowSize: 0,
     // {string}
-    font: 'arial',
+    font: 'spaceGrotesk',
     // {string} Example: 'bold'
-    fontStyle: '',
+    fontStyle: 'bold',
     // {string} Indicates how to choose the labels color. Available values:
     //          "node", "default"
-    labelColor: 'default',
+    labelColor: 'node',
     // {string} Indicates how to choose the labels size. Available values:
     //          "fixed", "proportional"
     labelSize: 'fixed',
     // {string} The ratio between the font size of the label and the node size.
     labelSizeRatio: 1,
     // {number} The minimum size a node must have to see its label displayed.
-    labelThreshold: 20,
+    labelThreshold: 10000,
     // {number} The oversampling factor used in WebGL renderer.
     webglOversamplingRatio: 2,
     // {number} The size of the border of hovered nodes.
-    borderSize: 0,
+    borderSize: -1,
     // {number} The default hovered node border's color.
-    defaultNodeBorderColor: '#000',
+    defaultNodeBorderColor: '#fff',
     // {number} The hovered node's label font. If not specified, will heritate
     //          the "font" value.
     hoverFont: '',
     // {boolean} If true, then only one node can be hovered at a time.
     singleHover: true,
     // {string} Example: 'bold'
-    hoverFontStyle: '',
+    hoverFontStyle: 'bold',
     // {string} Indicates how to choose the hovered nodes shadow color.
     //          Available values: "node", "default"
-    labelHoverShadow: 'default',
+    labelHoverShadow: 'node',
     // {string}
-    labelHoverShadowColor: '#000',
+    labelHoverShadowColor: '',
     // {string} Indicates how to choose the hovered nodes color.
     //          Available values: "node", "default"
-    nodeHoverColor: 'node',
+    nodeHoverColor: '#000',
     // {string}
-    defaultNodeHoverColor: '#000',
+    defaultNodeHoverColor: '#fff',
     // {string} Indicates how to choose the hovered nodes background color.
     //          Available values: "node", "default"
-    labelHoverBGColor: 'default',
+    labelHoverBGColor: 'node',
     // {string}
     defaultHoverLabelBGColor: '#fff',
     // {string} Indicates how to choose the hovered labels color.
     //          Available values: "node", "default"
     labelHoverColor: 'default',
     // {string}
-    defaultLabelHoverColor: '#000',
+    defaultLabelHoverColor: '#fff',
     // {string} Indicates how to choose the edges hover color. Available values:
     //          "edge", "default"
     edgeHoverColor: 'edge',
