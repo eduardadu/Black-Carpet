@@ -30,6 +30,7 @@ body {
 /*-------------------CENTERBARB----*/
 .centerbar{
   position:fixed;
+
   color:#110F0C;
   opacity:1;
   width:100%;
@@ -39,17 +40,21 @@ body {
   text-align: center;
   top:-8rem;
   transition: all 1s ease;
+
 }
 .centerbar.moveUP{
   top:0px;
 }
 
 #centerline{
-  border-bottom: 2px solid white;
   position:relative;
+  border-bottom: 2px solid white;
   pointer-events: none;
-  top:6rem;
+  top: 7rem;
   width:30%;
+  min-width:10rem;
+  max-width:18rem;
+  display:inline-block;
 }
 
 /* ---------------SIDEBAR*/
@@ -61,9 +66,10 @@ body {
   height:100%;
   opacity: 1;
   right:0%;
-  padding-top:4em;
-  transition: all 1s ease;
+  transition: all 0.8s ease;
   min-width:0px;
+  display: flex;
+ align-items: flex-end;
 }
 .ghost{
   background-color: #110F0C;
@@ -75,6 +81,10 @@ body {
   width:20%;
 }
 
+.sidebarCONT{
+   align-items: flex-end;
+  bottom:2rem;
+}
 
 /* -------------------SEARCHBAR------*/
 
@@ -110,7 +120,10 @@ body {
 #genre_selector, #search_actor {
 
 }
-
+#genre_selector{
+  max-height: 50vh;
+  overflow-y: auto;
+}
 #genre_selector> label{
   display: block;
   color: white;
@@ -119,14 +132,17 @@ body {
   padding:0.2rem;
   white-space: nowrap;
   z-index: 25;
+    padding:0.2em;
 }
 
-#genre_selector > label:hover{
+#genre_selector> label :hover{
   display:inline-block;
   border-style: solid white;
   color:white;
   white-space: nowrap;
+
 }
+
 button{
   display:block;
 }
@@ -136,6 +152,7 @@ margin-bottom:3rem;
 z-index: 25;
 margin-left:2rem;
 margin-right:2rem;
+bottom:0;
 }
 
 /* esconder as checkbox's do form */
@@ -166,9 +183,11 @@ input[type="checkbox"] {
   right:2em;
   z-index:10;
   transform: rotate(0deg);
-  transition: transform .8s ease-in-out;
+  transition: transform .8s, right .8s ;
 }
-
+#setafora.setaleft{
+  right:20%;
+}
 
 /* -------------------TEXTO------*/
 
@@ -191,4 +210,14 @@ input[type="checkbox"] {
   pointer-events: none;
 }
 
-/* ---------------seta*/
+/* ---------------media query*/
+
+@media only screen and (max-height: 600px) {
+  #genre_selector{
+    max-height: 30vh;
+    overflow-y: auto;
+  }
+  #setafora.setaleft{
+    right:200px;
+  }
+}
