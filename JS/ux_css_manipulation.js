@@ -17,12 +17,14 @@ $( document ).ready(function() {
         bar[i].classList.add('move');
         bar[i].style.minWidth=  "200px";
         document.querySelector('#search_container').style.marginRight=  "2 rem";
+        document.querySelector('#setafora').style.transform = 'rotate(180deg)';
       }
     }else{
       for(var i=0; i<bar.length;i++){
             document.querySelector('#search_container').style.marginRight=  "0 rem";
             bar[i].classList.remove('move');
             bar[i].style.minWidth=  "0px";
+            document.querySelector('#setafora').style.transform = 'rotate(0deg)';
 
       }
     }

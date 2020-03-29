@@ -36,6 +36,8 @@ body {
   height:20%;
   min-width:100px;
   pointer-events: none;
+  text-align: center;
+  margin-top: 2rem;
 }
 
 /* ---------------SIDEBAR*/
@@ -67,6 +69,8 @@ body {
 }
 /* -------------------SEARCHBAR------*/
 
+
+
 #search_bar {
   border: none;
   border-bottom: 2px solid white;
@@ -96,17 +100,19 @@ body {
 #genre_selector, #search_actor {
 }
 
-#genre_selector > label {
+#genre_selector> label{
   display: block;
   color: white;
   font-family: spaceGrotesk;
-  font-size: 1rem;
+  font-size: 0.8rem;
   padding:0.2rem;
+  white-space: nowrap;
 }
 #genre_selector > label:hover{
   display:inline-block;
   border-style: solid white;
   color:white;
+  white-space: nowrap;
 }
 button{
   display:block;
@@ -134,18 +140,32 @@ input[type="checkbox"] {
   color: red;
   border-color: #e83737;
 }
+
+/* -------------------SETA------*/
+#setafora{
+  width:auto;
+  display:inline-block;
+  position:fixed;
+  top:45%;
+  right:2em;
+  z-index:10;
+  transform: rotate(0deg);
+  transition: transform .8s ease-in-out;  
+}
+
+
 /* -------------------TEXTO------*/
 
 .ui_title {
   font-family: spaceGrotesk;
   font-weight: bold;
   color:white;
-  font-size:1.6rem;
+  font-size:1.5rem;
   margin-bottom: 0.8rem;
   white-space: pre;
 }
 
-.name_Title{
+#name_Title{
   font-family: spaceGrotesk;
   font-weight: bold;
   color:white;
