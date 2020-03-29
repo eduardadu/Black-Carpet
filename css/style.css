@@ -1,3 +1,6 @@
+container/*110F0C ---DARK COLOR*/
+/* FFFFFF--- white*/
+
 * {
   margin: 0;
   padding: 0;
@@ -20,6 +23,73 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
   position: relative;
   pointer-events: auto;
+  right:0;
+  top:0;
+}
+
+/* ---------------SIDEBAR*/
+.sidebar {
+  position: fixed;
+  right: 0;
+  top:0;
+  min-width: 80px;
+  width:15%;
+  height:100%;
+  padding: 2rem;
+
+}
+.ghost{
+  background-color: #110F0C;
+  opacity:0.5;
+}
+
+/* -------------------SEARCHBAR------*/
+
+#search_bar {
+  border: none;
+  border-bottom: 2px solid white;
+  color:white;
+}
+
+#search_bar, #suggestion-container {
+  font-family: spaceGrotesk;
+  font-size: 1em;
+  padding: 4px;
+  margin: 0;
+  background-color: #110F0C;
+
+
+}
+
+#suggestion-container {
+  position: absolute;
+
+  pointer-events: none;
+}
+
+#suggestion{
+  color: red;
+}
+
+
+#genre_selector, #search_actor {
+
+}
+
+#genre_selector > label {
+  display: block;
+  color: white;
+  font-family: spaceGrotesk;
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+#genre_selector: hover{
+  border-style: solid;
+}
+
+
+#genre_container, #search_container{
+margin-bottom:3rem;
 }
 
 /* esconder as checkbox's do form de genres */
@@ -40,46 +110,14 @@ input[type="checkbox"] {
   color: red;
   border-color: #e83737;
 }
-
-
-#search_bar {
-  border: none;
-}
-
-#search_bar, #suggestion-container {
-  font-family: spaceGrotesk;
-  font-size: 18px;
-  padding: 0;
-  margin: 0;
-}
-
-#suggestion-container {
-  position: absolute;
-  left: 0;
-  pointer-events: none;
-}
-
-#suggestion{
-  color: red;
-}
-
-
-#sidebar {
-  position: absolute;
-  right: 0;
-  background-color: rgba(0, 0, 255, 0.2);
-}
-
-
-#genre_selector, #search_actor {
-
-}
-
-#genre_selector > label {
-  display: block;
-}
+/* -------------------TEXTO------*/
 
 .ui_title {
   font-family: spaceGrotesk;
   font-weight: bold;
+  color:white;
+  font-size:1.9rem;
+  margin-bottom: 0.8rem;
 }
+
+/* ---------------seta*/

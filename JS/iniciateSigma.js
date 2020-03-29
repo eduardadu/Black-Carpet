@@ -14,7 +14,9 @@ $( document ).ready(function() {
         minEdgeSize: 0.01,
         maxEdgeSize: 0.05,
         minNodeSize: 2,
-        maxNodeSize: 10
+        maxNodeSize: 10,
+        eventsEnabled: true,
+
         //defaultEdgeType: "thickLine",
         //defaultNodeType: "fast"
       }
@@ -30,6 +32,13 @@ function createGaph() {
     saveNames(data.nodes);
     s.graph.read(data);
     s.refresh();
+
+
+    s.bind(' clickNode', function(e) {
+      console.log(e.type, e.data.node.label, e.data.captor);
+      
+    });
+
   });
 }
 
