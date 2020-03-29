@@ -45,6 +45,7 @@ body {
   opacity:0.5;
   pointer-events: none;
 }
+
 .aniSlidebar{
   animation-name: cssAnimation;
   animation-duration:3s;
@@ -102,6 +103,7 @@ body {
 }
 #genre_selector: hover{
   border-style: solid;
+  color:Red;
 }
 
 
