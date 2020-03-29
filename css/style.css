@@ -43,6 +43,7 @@ body {
 .ghost{
   background-color: #110F0C;
   opacity:0.5;
+  pointer-events: none;
 }
 .aniSlidebar{
   animation-name: cssAnimation;
@@ -79,7 +80,7 @@ body {
 
 #suggestion-container {
   position: absolute;
-
+  z-index:6;
   pointer-events: none;
 }
 
