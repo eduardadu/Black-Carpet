@@ -7,7 +7,7 @@ $( document ).ready(function() {
     for(var i=0; i<bar.length;i++){
       bar[i].style.left="auto";
       bar[i].style.right="0px";
-      bar[i].addClass('aniSlidebar');
+      //bar[i].addClass('aniSlidebar');
     }
   });
 });
