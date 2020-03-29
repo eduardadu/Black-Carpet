@@ -11,23 +11,17 @@ $( document ).ready(function() {
       },
       settings: {
         labelColor: 'node',
-<<<<<<< HEAD
-        minEdgeSize: 0.01,
-        maxEdgeSize: 0.05,
-        minNodeSize: 2,
-        maxNodeSize: 10,
-        eventsEnabled: true,
 
         //defaultEdgeType: "thickLine",
         //defaultNodeType: "fast"
-=======
+
         minEdgeSize: 0.001,
         maxEdgeSize: 0.1,
         minNodeSize: 0.5,
         maxNodeSize: 4,
         defaultEdgeType: 'thickLine',
         defaultNodeType: 'fast'
->>>>>>> 13c3d6fe36f421bf26780351aa75e1441b3d0157
+
       }
     }
   );
@@ -47,7 +41,7 @@ function createGaph() {
 
     s.bind(' clickNode', function(e) {
       console.log(e.type, e.data.node.label, e.data.captor);
-      
+
     });
 
   });
