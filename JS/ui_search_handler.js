@@ -54,12 +54,15 @@ function goToNode(actorN) {
 
     if(found) {
       displayActorInfo(parentNode);
+      displayInfo(parentNode.attributes.gender);
       var coods  = {x:parentNode['read_camcam1:x'], y:parentNode['read_camcam1:y'], ratio:0.3, angle:1};
       s.cameras.cam1.goTo(coods);
       hightlightNode_range(parentNode, 1);
     }
   } else if(actorN == "€") {
     resetHighlights();
+    document.querySelector('#actor_info').style.display="none";
+    parentNode = null;
     s.refresh();
   }
 }

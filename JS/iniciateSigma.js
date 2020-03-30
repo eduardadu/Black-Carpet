@@ -23,12 +23,10 @@ $( document ).ready(function() {
     }
   );
   createGaph();
-
 });
 
 //Lê o JSON
 function createGaph() {
-  var items = [];
   $.getJSON( "data/data.json", function( data ) {
     saveNames(data.nodes);
     applyCorrectColors(data);

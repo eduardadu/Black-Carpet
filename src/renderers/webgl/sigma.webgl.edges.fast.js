@@ -19,7 +19,6 @@
           x2 = target[prefix + 'x'],
           y2 = target[prefix + 'y'],
           color = edge.color;
-
       if (!color)
         switch (settings('edgeColor')) {
           case 'source':

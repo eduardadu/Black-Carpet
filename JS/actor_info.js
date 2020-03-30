@@ -130,5 +130,4 @@ function displayInfo(i){
     document.querySelector('#imgcolor').style.backgroundColor="#1A423A"; //verde
   }
   document.querySelector('#actor_info').style.display="flex";
-
 }
