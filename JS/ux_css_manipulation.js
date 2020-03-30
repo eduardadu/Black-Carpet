@@ -120,4 +120,14 @@ tabs[2].style.opacity="0.3";
       });
 
 
+      var open=false;
+      function OpenCloseActor(){
+        if(open==false){
+
+        }else{
+
+        }
+
+      };
+
 });
