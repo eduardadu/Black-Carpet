@@ -39,7 +39,14 @@ function createGaph() {
       displayActorInfo(e.data.node);
       hightlightNode_range(e.data.node, 1);
       displayInfo(e.data.node.attributes.gender);
+    });
 
+    s.bind('overNode', function(e) {
+      document.getElementById('sigma-container').style.cursor = 'pointer';
+    });
+    
+    s.bind('outNode', function(e) {
+      document.getElementById('sigma-container').style.cursor = 'grabbing';
     });
 
   });
