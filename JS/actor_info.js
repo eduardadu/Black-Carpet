@@ -7,7 +7,7 @@ function displayActorInfo(node) {
   parentNode = node;
   document.getElementById("actor_degree").value = 1;
   document.getElementById("degree_val").innerText = 1;
-  var img = document.querySelector("#actor_info > img");
+  var img = document.querySelector("#actor_photo");
   img.src = "";
   var name = document.getElementById("actor_name");
   var link = document.getElementById("actor_link");
