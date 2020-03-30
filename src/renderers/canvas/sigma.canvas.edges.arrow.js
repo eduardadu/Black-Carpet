@@ -38,6 +38,8 @@
     }
 
 
+
+
     context.strokeStyle = color;
     context.lineWidth = size;
     context.strokeStyle = color;

@@ -17,5 +17,7 @@ function checkLoading() {
 function clearLoadScreen() {
   document.getElementById("loadScreen").style.pointerEvents = "none";
   document.getElementById("loadScreen").style.opacity = 0;
-  document.getElementById("sigma-static-container").style.display = "none";
+
+  //document.getElementById("sigma-static-container").style.display = "none";
+  document.getElementById("sigma-container").style.display = "none";
 }
