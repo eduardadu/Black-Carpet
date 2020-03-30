@@ -1,7 +1,7 @@
 var s;
 var actorNames = [];
 var edgeSelectedSizeInc = 3;
-
+var genero;
 
 $( document ).ready(function() {
   s = new sigma(
@@ -40,6 +40,8 @@ function createGaph() {
       resetHighlights();
       displayActorInfo(e.data.node);
       hightlightNode_range(e.data.node, 1);
+      displayInfo(e.data.node.attributes.gender);
+
     });
 
   });

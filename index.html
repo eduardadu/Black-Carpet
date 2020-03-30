@@ -69,8 +69,32 @@
 
   <link rel="stylesheet" href="css/loadfonts.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/actor_style.css">
 </head>
 <body>
+
+
+    <div id="actor_info" >
+      <div id="imgbox">
+        <img id="actorimg" src="" width="100px">
+        <div id="imgcolor"></div>
+      </div>
+      <div id="actor_labels">
+        <div id="actor_name">Nome do ator</div>
+        <div class="actor_tiny">Degrees of Connection</div>
+        <input id="actor_degree" type="range" min="1" max="6" value="1" class="slider">
+        <span style="  margin-right:5px;" id="degree_val">1</span>
+        <div class="actor_tiny" style="  margin-top: 1.8rem; margin-bottom: 0.4rem;"><a id="actor_link" href="" target="_blank">Visit TMDB profile</a></div>
+        <div id="actor_info_cancel">
+          <svg width="16" height="16" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 1L1 22" stroke="white" stroke-width="2"/>
+            <path d="M22 22L1 0.999999" stroke="white" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+
   <div id="container">
     <div id="sigma-container">
     </div>
@@ -156,14 +180,6 @@
   </div>
 
 
-  <div id="actor_info" style="display: none">
-    <img src="" width="100px">
-    <span id="actor_name">Nome do ator</span>
-    <span><a id="actor_link" href="" target="_blank">Visit TMDB profile</a></span>
-    <input id="actor_degree" type="range" min="1" max="6" value="1" class="slider">
-    <span id="degree_val">1</span>
-    <span id="actor_info_cancel">CANCEL</span>
-  </div>
   <div id="about_container">
     <div class="about_smallCONT">
       <div id="aboutButt"></div>
