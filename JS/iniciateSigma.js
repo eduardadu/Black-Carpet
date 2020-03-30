@@ -15,8 +15,8 @@ $( document ).ready(function() {
         labelColor: 'node',
         minEdgeSize: 0.01,
         maxEdgeSize: 0.9,
-        minNodeSize: 0.1,
-        maxNodeSize: 1.5,
+        minNodeSize: 0,
+        maxNodeSize: 3,
         defaultEdgeType: 'thickLine',
         defaultNodeType: 'fast'
       }
@@ -66,6 +66,7 @@ function applyCorrectColors(data) {
 
   data.nodes.forEach((item, i) => {
     changeNodeColor(item);
+    item.size = item.size - 0.25;
   });
 }
 
