@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <title>Black Carpet</title>
- <link rel="icon" href="favicon.png" type="image" sizes="32x32"> 
+ <link rel="icon" href="favicon.png" type="image" sizes="32x32">
   <!-- jQuery-->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="JS/loadScreen.js"></script>
@@ -59,14 +59,15 @@
   <script src="../plugins/sigma.parsers.json/sigma.parsers.json.js"></script>
 
   <!-- Javascript -->
+    <script src="JS/switchGraphs.js"></script>
   <script src="JS/colors_and_stuff.js"></script>
   <script src="JS/actor_info.js"></script>
   <script src="JS/iniciateSigma.js"></script>
   <script src="JS/static_big_data_graph.js"></script>
   <script src="JS/static_black_hole_graph.js"></script>
-  <script src="JS/ui_genre_handler.js"></script>
+  <script src="JS/ui_genre_and_gender_handler.js"></script>
   <script src="JS/ui_search_handler.js"></script>
-  <script src="JS/switchGraphs.js"></script>
+
 
   <link rel="stylesheet" href="css/loadfonts.css">
   <link rel="stylesheet" href="css/style.css">
@@ -144,8 +145,19 @@
             </form>
           </div>
 
-          <div id="genre_container">
+          <div id="gender_container">
+            <div class="ui_title">Genders</div>
+            <form id="gender_selector">
+              <input class="gender_box" id="GS_female" type="checkbox" name="GS_female" value="1" checked>
+              <label for="GS_female">Female</label>
+              <input class="gender_box" id="GS_male" type="checkbox" name="GS_male" value="2" checked>
+              <label for="GS_male">Male</label>
+              <input class="gender_box" id="GS_unknown" type="checkbox" name="GS_unknown" value="0" checked>
+              <label for="GS_unknown">Unknown</label>
+            </form>
+          </div>
 
+          <div id="genre_container">
             <div class="ui_title">Categories</div>
             <form id="genre_selector">
               <input class="genre_box" id="action" type="checkbox" name="action" value="action" checked>
@@ -183,6 +195,7 @@
               <input class="genre_box" id="western" type="checkbox" name="western" value="western" checked>
               <label for="western">Western</label>
             </form>
+            <div><span id="genre_show_all">Show All</span><span id="genre_hide_all">Hide All</span></div>
           </div>
         </div>
       </div>

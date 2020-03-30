@@ -29,7 +29,7 @@ $( document ).ready(function() {
   });
 
   $("#actor_info_cancel").click(function() {
-    resetHighlights();
+    resetHighlights("mindAtts");
     parentNode = null;
     document.querySelector('#actor_info').style.display="none";
     s.refresh();
@@ -86,9 +86,9 @@ function hightlightNode_range(node, range) {
         changeNodeColor(item);
       }
       if(childNodesIds.includes(item.id)) {
-        hNode(item.id);
+        hNode(item.id, item);
       }
-      if(!targets.includes(item.id)){
+      if(!targets.includes(item.id) && ){
         changeNodeColor(item);
         item.color = blend_colors(item.color, deSelected);
       }
@@ -97,25 +97,77 @@ function hightlightNode_range(node, range) {
   }
 }
 
-function hNode(nid) {
+function hNode(nid, node) {
   s.graph.adjacentEdges(nid).forEach((item, i) => {
     item.size = parseInt(item.attributes.weigth) * edgeSelectedSizeInc;
-    changeEdgeColor(item);
+    var cat = getSelectedGenres();
+    var genders = getSelectedGenders();
+    let sumVisibleEdges = 0;
+    //Categorias
+    for(let u = 0; u < cat.length; u++) {
+      if(item.attributes[cat[u]] != null) {
+        sumVisibleEdges += parseInt(item.attributes[cat[u]]);
+      }
+    }
+    //Generos
+    var g = item.attributes.genders.split("-");
+    if(parentNode == node) {
+      var diff_g = parseInt(g[0]);
+      if(diff_g == node.attributes.gender) {
+        diff_g = parseInt(g[1]);
+      }
+      if(genders.includes(diff_g.toString()) && sumVisibleEdges > 0) {
+        changeEdgeColor(item);
+      } else {
+        item.color = deSelected;
+      }
+    } else {
+      if(genders.includes(g[0]) && genders.includes(g[1]) && sumVisibleEdges > 0 ) {
+        changeEdgeColor(item);
+      } else {
+        item.color = deSelected;
+      }
+    }
   });
 }
 
-function resetHighlights() {
-  console.log("reseted");
-  s.graph.edges().forEach((item, i) => {
-    changeEdgeColor(item);
-    item.size = parseInt(item.attributes.weigth);
-  });
-
+function resetHighlights(state) {
+  if(state == "mindAtts") {
+    var genders = getSelectedGenders();
+    var cat = getSelectedGenres();
+    //Edges
+    s.graph.edges().forEach((item, i) => {
+      let sumVisibleEdges = 0;
+      //Categorias
+      for(let u = 0; u < cat.length; u++) {
+        if(item.attributes[cat[u]] != null) {
+          sumVisibleEdges += parseInt(item.attributes[cat[u]]);
+        }
+      }
+      //Generos
+      var g = item.attributes.genders.split("-");
+      if(genders.includes(g[0]) && genders.includes(g[1]) && sumVisibleEdges > 0 ) {
+        changeEdgeColor(item);
+      } else {
+        item.color = deSelected;
+      }
+    });
+    //Nodes
+    s.graph.nodes().forEach((item, i) => {
+      changeNodeColor(item);
+      if(!genders.includes(parseInt(item.attributes.gender).toString())) {
+        item.color = blend_colors(item.color, deSelected);
+      }
+    });
+  } else {
+    s.graph.edges().forEach((item, i) => {
+      changeEdgeColor(item);
+      item.size = parseInt(item.attributes.weigth);
+    });
+  }
   s.graph.nodes().forEach((item, i) => {
     changeNodeColor(item);
   });
-  //s.refresh();
-
 }
 
 

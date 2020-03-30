@@ -1,4 +1,4 @@
-var checkLoadTime = 3;
+var checkLoadTime = 0;
 var iniLoadCheck;
 var loadAnimation;
 var getLine;

@@ -131,11 +131,12 @@ body { background-color: #110F0C;}
   color: #FF3940;
 }
 /* ------------------------------------------CATEGORIAS------*/
-#genre_selector{
-  max-height: 60vh;
+#genre_selector {
+  max-height: 30vh;
   overflow-y: auto;
+  margin-bottom: 1rem;
 }
-#genre_selector> label{
+#genre_selector> label, #gender_selector > label{
   display: block;
   color: #dbdbdb;
   font-family: spaceGrotesk;
@@ -153,25 +154,25 @@ body { background-color: #110F0C;}
             user-select: none;
 }
 
-#genre_container, #search_container{
+#genre_container, #search_container, #gender_container{
   margin-bottom:3rem;
 }
 
-#genre_selector> label:hover{
+#genre_selector > label:hover, #gender_selector > label:hover{
   margin-left: 1rem;
   color:#FF3940;
 }
-#genre_selector> label:hover::before{
+#genre_selector > label:hover::before, #gender_selector > label:hover::before{
   content:"— ";
   color:#FF3940;
   margin-left: 1rem;
 }
-.genre_box:checked + label:before{
+.genre_box:checked + label:before, .gender_box:checked + label:before{
   color:white;
   content:"— ";
 }
 
-#genre_container, #search_container, #about_container{
+#genre_container, #search_container, #about_container, #gender_container{
   margin-bottom:3rem;
   z-index: 25;
   margin-left:2rem;
@@ -189,13 +190,25 @@ input[type="checkbox"] {
   z-index: 10;
 }
 
-.genre_box + label {
+.genre_box + label, .gender_box + label {
   cursor: pointer;
 }
 
-.genre_box:checked + label {
+.genre_box:checked + label, .gender_box:checked + label {
   color: red;
   border-color: #e83737;
+}
+
+#genre_hide_all, #genre_show_all {
+  margin: 10px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+#genre_hide_all:hover, #genre_show_all:hover {
+  color: #FF3940;
+  cursor: pointer;
 }
 
 /* -------------------SETA------*/
@@ -219,7 +232,7 @@ input[type="checkbox"] {
   font-family: spaceGrotesk;
   font-weight: bold;
   color:white;
-  font-size:1.5rem;
+  font-size:1.3rem;
   margin-bottom: 0.8rem;
   white-space: pre;
 }
@@ -323,4 +336,26 @@ input[type="checkbox"] {
   top: 50%;
   transform: translate(-50%, -50%);
   margin: auto;
+}
+
+
+/* https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #e83737;
 }

@@ -43,7 +43,7 @@ function goToNode(actorN) {
   console.log("Searching "+actorN);
 
   if(actorN != "€") {
-    resetHighlights();
+    resetHighlights("mindAtts");
     var found = false;
     for(let i=0; i<s.graph.nodes().length; i++) {
       if(s.graph.nodes()[i].label === actorN) {
@@ -60,7 +60,7 @@ function goToNode(actorN) {
       hightlightNode_range(parentNode, 1);
     }
   } else if(actorN == "€") {
-    resetHighlights();
+    resetHighlights("mindAtts");
     document.querySelector('#actor_info').style.display="none";
     parentNode = null;
     s.refresh();

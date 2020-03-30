@@ -20,10 +20,10 @@ $(document).ready(function() {
       }
     }
   );
-  createStaticGaph("data-biggerdata", staticS_big);
-  var coods  = {x:0, y:0, ratio:0.65, angle:0};
-  staticS_big.cameras.cam2.goTo(coods);
-  staticS_big.refresh();
+  // createStaticGaph("data-biggerdata", staticS_big);
+  // var coods  = {x:0, y:0, ratio:0.65, angle:0};
+  // staticS_big.cameras.cam2.goTo(coods);
+  // staticS_big.refresh();
 });
 
 function createStaticGaph(jsonName, sInstance) {
