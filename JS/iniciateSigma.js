@@ -44,14 +44,14 @@ function createGaph() {
     s.bind('overNode', function(e) {
       document.getElementById('sigma-container').style.cursor = 'pointer';
     });
-    
+
     s.bind('outNode', function(e) {
-      document.getElementById('sigma-container').style.cursor = 'grabbing';
+      document.getElementById('sigma-container').style.cursor = 'default';
     });
 
   });
-
 }
+
 
 function saveNames(theNames) {
   for(let i = 0; i < theNames.length; i++) {

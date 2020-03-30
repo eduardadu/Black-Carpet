@@ -121,7 +121,6 @@ function resetHighlights() {
 
 function displayInfo(i){
   genero= i;
-  console.log(genero);
   if(genero==0.0){
     document.querySelector('#imgcolor').style.backgroundColor="#191024"; //roxo
   }else if(genero==2.0){

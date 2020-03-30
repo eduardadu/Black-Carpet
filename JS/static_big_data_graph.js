@@ -11,7 +11,7 @@ $(document).ready(function() {
       settings: {
         labelColor: 'node',
         minEdgeSize: 0.01,
-        maxEdgeSize: 0.5,
+        maxEdgeSize: 0.9,
         minNodeSize: 1,
         maxNodeSize: 5,
         defaultEdgeType: 'arrow',
@@ -20,8 +20,8 @@ $(document).ready(function() {
       }
     }
   );
-  createStaticGaph("data-bigdata", staticS_big);
-  var coods  = {x:132.57906197673725, y:-133.24947426787585, ratio:1, angle:0};
+  createStaticGaph("data-biggerdata", staticS_big);
+  var coods  = {x:0, y:0, ratio:0.65, angle:0};
   staticS_big.cameras.cam2.goTo(coods);
   staticS_big.refresh();
 });
