@@ -8,6 +8,7 @@ body { background-color: #110F0C;}
 #sigma-container, #sigma-static-bigData-container, #sigma-static-blackHole-container {
   top: 0; bottom: 0; left: 0; right: 0;
   position: absolute;
+  transition: opacity 500ms ease;
 }
 
 #ui_container {
@@ -146,13 +147,9 @@ body { background-color: #110F0C;}
   transition: all 0.1s linear;
 }
 
-
-
 #genre_container, #search_container{
   margin-bottom:3rem;
 }
-
-
 
 #genre_selector> label:hover{
   margin-left: 1rem;
@@ -245,6 +242,7 @@ input[type="checkbox"] {
   50% {top: 0px;}
   100% {top: -5px;}
 }
+
 /* -----------------------------------------------media query*/
 @media only screen and (max-height: 600px) {
   #genre_selector{
@@ -278,4 +276,39 @@ input[type="checkbox"] {
   z-index: 1000000;
   opacity: 1;
   transition: opacity 1s ease;
+}
+
+#loadContainer > p {
+  text-align: center;
+}
+
+#loadTittle {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+#Loadline {
+  transform: translate(-50%, 0);
+  position: relative;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #FF3940;
+  /* background-color: rgba(223, 213, 236); */
+  margin: 15 0 25px 0;
+  transition: width 1s ease;
+}
+
+#loadStatus {
+    font-size: 1rem;
+}
+
+#loadContainer {
+  width: 100%;
+  color: white;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
 }

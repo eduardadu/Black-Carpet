@@ -1,11 +1,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>VI_temp</title>
+  <title>Black Carpet</title>
 
   <!-- jQuery-->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
   <script src="JS/loadScreen.js"></script>
 
   <!-- Sigma core -->
@@ -67,6 +66,7 @@
   <script src="JS/static_black_hole_graph.js"></script>
   <script src="JS/ui_genre_handler.js"></script>
   <script src="JS/ui_search_handler.js"></script>
+  <script src="JS/switchGraphs.js"></script>
 
   <link rel="stylesheet" href="css/loadfonts.css">
   <link rel="stylesheet" href="css/style.css">
@@ -93,13 +93,17 @@
       </div>
     </div>
   </div>
+
+
   <!--  CANVAS'ES --------------------------------------->
   <div id="sigma-static-bigData-container" style="pointer-events: none;"></div>
   <div id="sigma-static-blackHole-container" style="pointer-events: none;"></div>
-  <div id="container">
+  <div id="container" style="cursor: move">
     <div id="sigma-container">
     </div>
   </div>
+
+
 
   <div id="ui_container">
     <!--<div class="centerbar ghost"></div> -->
@@ -184,7 +188,18 @@
       </div>
     </div>
 
-    <div id="loadScreen"></div>
+    <div style="color: white; cursor: pointer; position:fixed">
+      <div id="change2BH">BLACK HOLE</div>
+      <div id="change2Dynamic">DYNAMIC</div>
+      <div id="change2BigData">BIG DATA</div>
+    </div>
+    <div id="loadScreen">
+      <div id="loadContainer">
+        <p id="loadTittle">BLACK CARPET</p>
+        <p id="Loadline"></p>
+        <p id="loadStatus">Loading...</p>
+      </div>
+    </div>
     <script src="JS/ux_css_manipulation.js"></script>
   </body>
   </html>

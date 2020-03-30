@@ -4,7 +4,7 @@ $(document).ready(function() {
   staticS_blackHole = new sigma(
     {
       renderer: {
-        container: document.getElementById('sigma-static-bigData-container'),
+        container: document.getElementById('sigma-static-blackHole-container'),
         type: 'canvas',
         camera: "cam2"
       },
@@ -16,12 +16,12 @@ $(document).ready(function() {
         maxNodeSize: 5,
         defaultEdgeType: 'arrow',
         batchEdgesDrawing: true,
-        webglEdgesBatchSize: 200,
+        canvasEdgesBatchSize: 40
       }
     }
   );
   createStaticGaph("data-blackhole", staticS_blackHole);
-  var coods  = {x:0, y:0, ratio:0.9, angle:0};
+  var coods  = {x:-63.59095175703213, y:-63.59095175703213, ratio:0.6876382730444773, angle:0};
   staticS_blackHole.cameras.cam2.goTo(coods);
   staticS_blackHole.refresh();
 });
