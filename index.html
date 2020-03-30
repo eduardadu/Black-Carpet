@@ -63,24 +63,22 @@
   <script src="JS/colors_and_stuff.js"></script>
   <script src="JS/actor_info.js"></script>
   <script src="JS/iniciateSigma.js"></script>
-  <script src="JS/static_graph.js"></script>
+  <script src="JS/static_big_data_graph.js"></script>
+  <script src="JS/static_black_hole_graph.js"></script>
   <script src="JS/ui_genre_handler.js"></script>
   <script src="JS/ui_search_handler.js"></script>
-
 
   <link rel="stylesheet" href="css/loadfonts.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/actor_style.css">
 </head>
 <body>
-
-  <div id="sigma-static-container" style="pointer-events: none;">
-  </div>
   <div id="actor_info" >
     <div id="imgbox">
       <img id="actorimg" src="" width="100px">
       <div id="imgcolor"></div>
     </div>
+
     <div id="actor_labels">
       <div id="actor_name">Nome do ator</div>
       <div class="actor_tiny">Degrees of Connection</div>
@@ -95,9 +93,10 @@
       </div>
     </div>
   </div>
-
+  <!--  CANVAS'ES --------------------------------------->
+  <div id="sigma-static-bigData-container" style="pointer-events: none;"></div>
+  <div id="sigma-static-blackHole-container" style="pointer-events: none;"></div>
   <div id="container">
-
     <div id="sigma-container">
     </div>
   </div>
@@ -106,102 +105,86 @@
     <!--<div class="centerbar ghost"></div> -->
     <div class="centerbar">
       <div id="centerline"></div>
-      <div id="name_Title"> <span id="titulo">BLACK CARPET<span></div>
-        <div id="about">
-          <div id="aboutlittle">
-            <span>An interstellar network of movie stars.<br>
-              Click to find out more</span>
-            </div>
-          </div>
-        </div>
-
-        <div id="setafora" style="cursor: pointer">
-          <svg width="32" height="23" viewBox="0 0 32 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.3517 21.7034L2 11.3517L12.3517 1.00001" stroke="white" stroke-width="2"/>
-            <path d="M2.54492 11.3518L31.4207 11.3518" stroke="white" stroke-width="2"/>
-          </svg>
-        </div>
-
-
-        <div class="sidebar ghost" ></div>
-        <div class="sidebar" style="z-index:3;">
-          <div class="sidebarCONT">
-            <div id="search_container">
-              <div class="ui_title" style="max-height:1.2rem;" ><pre class="ui_title">Find Actor</pre></div>
-              <form id="search_actor" autocomplete="off">
-                <span id="suggestion-container"><span id="typed"></span><span id="suggestion"></span></span>
-                <input id="search_bar" value="" type="text" placeholder="Kevin Bacon">
-              </form>
-            </div>
-
-            <div id="genre_container">
-
-              <div class="ui_title"  >Categories</div>
-              <form id="genre_selector">
-                <input class="genre_box" id="action" type="checkbox" name="action" value="action" checked>
-                <label for="action">Action</label>
-                <input class="genre_box" id="adventure" type="checkbox" name="adventure" value="adventure" checked>
-                <label for="adventure">Adventure</label>
-                <input class="genre_box" id="animation" type="checkbox" name="animation" value="animation" checked>
-                <label for="animation">Animation</label>
-                <input class="genre_box" id="comedy" type="checkbox" name="comedy" value="comedy" checked>
-                <label for="comedy">Comedy</label>
-                <input class="genre_box" id="crime" type="checkbox" name="crime" value="crime" checked>
-                <label for="crime">Crime</label>
-                <input class="genre_box" id="drama" type="checkbox" name="drama" value="drama" checked>
-                <label for="drama">Drama</label>
-                <input class="genre_box" id="family" type="checkbox" name="family" value="family" checked>
-                <label for="family">Family</label>
-                <input class="genre_box" id="fantasy" type="checkbox" name="fantasy" value="fantasy" checked>
-                <label for="fantasy">Fantasy</label>
-                <input class="genre_box" id="history" type="checkbox" name="history" value="history" checked>
-                <label for="history">History</label>
-                <input class="genre_box" id="horror" type="checkbox" name="horror" value="horror" checked>
-                <label for="horror">Horror</label>
-                <input class="genre_box" id="mystery" type="checkbox" name="mystery" value="mystery" checked>
-                <label for="mystery">Mystery</label>
-                <input class="genre_box" id="music" type="checkbox" name="music" value="music" checked>
-                <label for="music">Music</label>
-                <input class="genre_box" id="romance" type="checkbox" name="romance" value="romance" checked>
-                <label for="romance">Romance</label>
-                <input class="genre_box" id="scifi" type="checkbox" name="science fiction" value="science fiction" checked>
-                <label for="scifi">Science Fiction</label>
-                <input class="genre_box" id="thriller" type="checkbox" name="thriller" value="thriller" checked>
-                <label for="thriller">Thriller</label>
-                <input class="genre_box" id="war" type="checkbox" name="war" value="war" checked>
-                <label for="war">War</label>
-                <input class="genre_box" id="western" type="checkbox" name="western" value="western" checked>
-                <label for="western">Western</label>
-              </form>
-            </div>
+      <div id="name_Title"> <span id="titulo">BLACK CARPET</span></div>
+      <div id="about">
+        <div id="aboutlittle">
+          <span>An interstellar network of movie stars.<br>
+            Click to find out more</span>
           </div>
         </div>
       </div>
-      <div id="actor_info">
-        <div>
-          <img id="actor_photo" src="" width="100px">
-        </div>
-        <span id="actor_name">Nome do ator</span>
-        <span><a id="actor_link" href="" target="_blank">Visit TMDB profile</a></span>
-        <input id="actor_degree" type="range" min="1" max="6" value="1" class="slider">
-        <span id="degree_val">1</span>
-        <span id="actor_info_cancel">CANCEL</span>
-      </div>
-      <div id="about_container">
-        <div class="about_smallCONT">
-          <div id="aboutButt"></div>
-          <div class="name_Title">About Black Carpet Project</div>
-          <div class="text"></div>
-        </div>
+
+      <div id="setafora" style="cursor: pointer">
+        <svg width="32" height="23" viewBox="0 0 32 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.3517 21.7034L2 11.3517L12.3517 1.00001" stroke="white" stroke-width="2"/>
+          <path d="M2.54492 11.3518L31.4207 11.3518" stroke="white" stroke-width="2"/>
+        </svg>
       </div>
 
-      <div id="about_container">
-        <div class="about_smallCONT">
-          <div id="aboutButt"></div>
-          <div class="name_Title">About Black Carpet Project</div>
-          <div class="text"></div>
+
+      <div class="sidebar ghost" ></div>
+      <div class="sidebar" style="z-index:3;">
+        <div class="sidebarCONT">
+          <div id="search_container">
+            <div class="ui_title" style="max-height:1.2rem;" ><pre class="ui_title">Find Actor</pre></div>
+            <form id="search_actor" autocomplete="off">
+              <span id="suggestion-container"><span id="typed"></span><span id="suggestion"></span></span>
+              <input id="search_bar" value="" type="text" placeholder="Kevin Bacon">
+            </form>
+          </div>
+
+          <div id="genre_container">
+
+            <div class="ui_title"  >Categories</div>
+            <form id="genre_selector">
+              <input class="genre_box" id="action" type="checkbox" name="action" value="action" checked>
+              <label for="action">Action</label>
+              <input class="genre_box" id="adventure" type="checkbox" name="adventure" value="adventure" checked>
+              <label for="adventure">Adventure</label>
+              <input class="genre_box" id="animation" type="checkbox" name="animation" value="animation" checked>
+              <label for="animation">Animation</label>
+              <input class="genre_box" id="comedy" type="checkbox" name="comedy" value="comedy" checked>
+              <label for="comedy">Comedy</label>
+              <input class="genre_box" id="crime" type="checkbox" name="crime" value="crime" checked>
+              <label for="crime">Crime</label>
+              <input class="genre_box" id="drama" type="checkbox" name="drama" value="drama" checked>
+              <label for="drama">Drama</label>
+              <input class="genre_box" id="family" type="checkbox" name="family" value="family" checked>
+              <label for="family">Family</label>
+              <input class="genre_box" id="fantasy" type="checkbox" name="fantasy" value="fantasy" checked>
+              <label for="fantasy">Fantasy</label>
+              <input class="genre_box" id="history" type="checkbox" name="history" value="history" checked>
+              <label for="history">History</label>
+              <input class="genre_box" id="horror" type="checkbox" name="horror" value="horror" checked>
+              <label for="horror">Horror</label>
+              <input class="genre_box" id="mystery" type="checkbox" name="mystery" value="mystery" checked>
+              <label for="mystery">Mystery</label>
+              <input class="genre_box" id="music" type="checkbox" name="music" value="music" checked>
+              <label for="music">Music</label>
+              <input class="genre_box" id="romance" type="checkbox" name="romance" value="romance" checked>
+              <label for="romance">Romance</label>
+              <input class="genre_box" id="scifi" type="checkbox" name="science fiction" value="science fiction" checked>
+              <label for="scifi">Science Fiction</label>
+              <input class="genre_box" id="thriller" type="checkbox" name="thriller" value="thriller" checked>
+              <label for="thriller">Thriller</label>
+              <input class="genre_box" id="war" type="checkbox" name="war" value="war" checked>
+              <label for="war">War</label>
+              <input class="genre_box" id="western" type="checkbox" name="western" value="western" checked>
+              <label for="western">Western</label>
+            </form>
+          </div>
         </div>
-        <div id="loadScreen"></div>
-        <script src="JS/ux_css_manipulation.js"></script>
-      </body>
-      </html>
+      </div>
+    </div>
+    <div id="about_container">
+      <div class="about_smallCONT">
+        <div id="aboutButt"></div>
+        <div class="name_Title">About Black Carpet Project</div>
+        <div class="text"></div>
+      </div>
+    </div>
+
+    <div id="loadScreen"></div>
+    <script src="JS/ux_css_manipulation.js"></script>
+  </body>
+  </html>

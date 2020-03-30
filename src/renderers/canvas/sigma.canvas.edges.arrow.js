@@ -37,8 +37,8 @@
       break;
     }
 
-
-
+    color = color.slice(0, color.length - 1);
+    color += ", 0.4)";
 
     context.strokeStyle = color;
     context.lineWidth = size;
