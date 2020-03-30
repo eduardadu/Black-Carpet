@@ -145,6 +145,12 @@ body { background-color: #110F0C;}
   margin-bottom: 0.1rem;
   margin-left: 0.4rem;
   transition: all 0.1s linear;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
 }
 
 #genre_container, #search_container{
@@ -276,6 +282,12 @@ input[type="checkbox"] {
   z-index: 1000000;
   opacity: 1;
   transition: opacity 1s ease;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
 }
 
 #loadContainer > p {
