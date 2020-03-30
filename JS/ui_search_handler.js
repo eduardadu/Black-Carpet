@@ -41,6 +41,7 @@ function getSuggestion(query) {
 
 function goToNode(actorN) {
   console.log("Searching "+actorN);
+
   if(actorN != "€") {
     resetHighlights();
     var found = false;
@@ -57,5 +58,8 @@ function goToNode(actorN) {
       s.cameras.cam1.goTo(coods);
       hightlightNode_range(parentNode, 1);
     }
+  } else if(actorN == "€") {
+    resetHighlights();
+    s.refresh();
   }
 }

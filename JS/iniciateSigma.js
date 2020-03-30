@@ -14,7 +14,7 @@ $( document ).ready(function() {
       settings: {
         labelColor: 'node',
         minEdgeSize: 0.01,
-        maxEdgeSize: 0.5,
+        maxEdgeSize: 0.9,
         minNodeSize: 0.1,
         maxNodeSize: 1.5,
         defaultEdgeType: 'thickLine',

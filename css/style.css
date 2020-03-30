@@ -35,7 +35,7 @@ body { background-color: #110F0C;}
   position:relative;
   border-bottom: 2px solid white;
   pointer-events: none;
-  top: 7rem;
+  top: 6rem;
   width:30%;
   min-width:10rem;
   max-width:18rem;
@@ -48,7 +48,7 @@ body { background-color: #110F0C;}
 }
 
 #aboutlittle{
-  margin-top:0.5rem;
+  margin-top:1rem;
   position:absolute;
   background-color: #110f0C;
   opacity:0.8;
@@ -115,7 +115,7 @@ body { background-color: #110F0C;}
   font-size: 1em;
   padding: 4px;
   margin: 0;
-  background-color: #110F0C;
+  background-color: transparent;
   color:white;
   opacity:0.9;
 }
@@ -176,7 +176,7 @@ button{
   color:white;
   font: spaceGrotesk;
   font-weight: normal;
-  margin-top:0.4rem;
+  margin-top:1rem;
   margin-bottom:0.4rem;
   font-size:0.8rem;
   cursor:pointer;
@@ -247,18 +247,24 @@ input[type="checkbox"] {
   font-weight: bold;
   color:white;
   font-size:2rem;
-  margin-top:2.2em;
-  letter-spacing: 2px;
   cursor: pointer;
+  margin-top: 3rem;
 }
 #titulo{
   cursor:pointer;
   height:2.5rem;
   height:100%;
-  padding-bottom: 0.8rem;
+  padding-bottom: 0.6rem;
 }
 
-/* ---------------media query*/
+
+/* -----------------------------------------------ANIMATIONS */
+@keyframes example {
+  0% {top: 5px;}
+  50% {top: 0px;}
+  100% {top: -5px;}
+}
+/* -----------------------------------------------media query*/
 
 @media only screen and (max-height: 600px) {
   #genre_selector{
