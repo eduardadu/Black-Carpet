@@ -1,0 +1,20 @@
+.tab_container{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  z-index:30;
+}
+
+.tab{
+  font-family: spaceGrotesk;
+  color:white;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  cursor: pointer;
+
+}
