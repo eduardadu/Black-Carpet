@@ -23,10 +23,10 @@ $(document).ready(function() {
     }
   );
   createStaticGaph();
-  $("#change2static").click(function() {
-    console.log("coisas");
-    switchGraphs();
-  });
+//BUTTON PARA MUDAR  $("#change2static").click(function() {
+  //   console.log("coisas");
+  //   switchGraphs();
+  // });
 });
 
 function createStaticGaph() {
