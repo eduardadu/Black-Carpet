@@ -7,7 +7,7 @@ function displayActorInfo(node) {
   parentNode = node;
   document.getElementById("actor_degree").value = 1;
   document.getElementById("degree_val").innerText = 1;
-  var img = document.querySelector("#actor_photo");
+  var img = document.querySelector("#actorimg");
   img.src = "";
   var name = document.getElementById("actor_name");
   var link = document.getElementById("actor_link");
@@ -30,8 +30,8 @@ $( document ).ready(function() {
 
   $("#actor_info_cancel").click(function() {
     resetHighlights();
-    console.log("yo wtf");
     parentNode = null;
+    document.querySelector('#actor_info').style.display="none";
     s.refresh();
   });
 });
@@ -115,5 +115,20 @@ function resetHighlights() {
     changeNodeColor(item);
   });
   //s.refresh();
+
+}
+
+
+function displayInfo(i){
+  genero= i;
+  console.log(genero);
+  if(genero==0.0){
+    document.querySelector('#imgcolor').style.backgroundColor="#191024"; //roxo
+  }else if(genero==2.0){
+    document.querySelector('#imgcolor').style.backgroundColor="#701A1D"; //vermelho
+  }else{
+    document.querySelector('#imgcolor').style.backgroundColor="#1A423A"; //verde
+  }
+  document.querySelector('#actor_info').style.display="flex";
 
 }
