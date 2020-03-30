@@ -60,6 +60,5 @@ var about= document.querySelector('#aboutlittle');
   });
 
 
-  
 
 });
