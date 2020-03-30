@@ -1,9 +1,7 @@
-var checkLoadTime = 5;
+var checkLoadTime = 1;
 var iniLoadCheck;
 $(document).ready(function() {
   iniLoadCheck = setInterval(checkLoading, 2000);
-
-
 });
 
 function checkLoading() {
