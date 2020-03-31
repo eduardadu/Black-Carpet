@@ -20,25 +20,19 @@
 .about_smallCONT{
   position:relative;
   margin-left:auto; margin-right:auto; margin-top: 150px;
-  max-width: 80%;  width: 600px;
+  max-width: 80%;  width: 550px;
   overflow-y: auto;
   top:0;
 
 }
 
-#myCanvas{
-  position:relative;
-  max-width: 600px; width:60%;
-  height: 30%; max-height: 150px;
-  margin-bottom: 2rem;
-}
 /* *----------------------------------------------------------TEXT*/
 .text{
   font-family: spaceGrotesk;
   color:white;
-  size:1rem;
+  font-size:0.8rem;
   text-align: left;
-  line-height: 1.3rem;
+  line-height: 1.1rem;
 }
 
 .aboutTitle{

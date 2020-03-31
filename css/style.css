@@ -167,10 +167,11 @@ body { background-color: #110F0C;}
   color:#FF3940;
   margin-left: 1rem;
 }
+
 .genre_box:checked + label:before, .gender_box:checked + label:before{
-  color:white;
   content:"— ";
 }
+
 
 #genre_container, #search_container, #about_container, #gender_container{
   margin-bottom:3rem;
