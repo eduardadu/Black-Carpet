@@ -119,6 +119,7 @@ tabs[2].style.opacity="0.3";
          document.querySelector('#setafora').classList.remove('setaleft');
          document.querySelector('#setafora').style.display="none";
          document.querySelector('.tab_container').style.bottom="0px";
+         estatico=true;
       });
 
 
@@ -127,12 +128,14 @@ tabs[2].style.opacity="0.3";
 
 
 function OpenCloseActor(i){
-  if(i==false){
-    document.querySelector('#actor_info').style.visibility="visible";
-    document.querySelector('#actor_info').style.left="100px";
-  }else{
-    document.querySelector('#actor_info').style.visibility="hidden";
-    document.querySelector('#actor_info').style.left="-200px";
+  if(estatico==false){
+    if(i==false){
+      document.querySelector('#actor_info').style.visibility="visible";
+      document.querySelector('#actor_info').style.left="100px";
+    }else{
+      document.querySelector('#actor_info').style.visibility="hidden";
+      document.querySelector('#actor_info').style.left="-200px";
+    }
   }
-  
+
 };
