@@ -1,5 +1,5 @@
 //Cores globais
-var deSelected = "rgb(20, 20, 20)";
+var deSelected = "rgb(0, 0, 0)";
 var edgeColor = "rgb(200, 200, 200)"
 
 //Edges
@@ -12,8 +12,6 @@ var node_no_gender_color = "rgb(188, 167, 215)";
 var node_female_color = "rgb(98, 233, 208)";
 var node_male_color = "rgb(255, 57, 64)";
 
-
-
 function changeNodeColor(node) {
   var gender = node.attributes.gender;
   if(gender == 0) {
@@ -24,7 +22,6 @@ function changeNodeColor(node) {
     node.color = node_male_color;
   }
 }
-
 
 function changeEdgeColor(edge) {
   var ref = edge.attributes.genders.split("-");
@@ -54,7 +51,6 @@ function changeEdgeColor(edge) {
   }
   edge.color = blend_colors(c_1, c_2);
 }
-
 
 
 function blend_colors(color1, color2){

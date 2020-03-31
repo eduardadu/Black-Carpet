@@ -21,13 +21,10 @@ function checkLoading() {
   }
 }
 
-
 function clearLoadScreen() {
   console.log("LOADED");
   document.getElementById("loadScreen").style.pointerEvents = "none";
   document.getElementById("loadScreen").style.opacity = 0;
-  //document.getElementById("sigma-static-blackHole-container").style.display = "none";
-  //document.getElementById("sigma-static-bigData-container").style.display = "none";
   document.getElementById("sigma-static-blackHole-container").style.opacity = "0";
   document.getElementById("sigma-static-bigData-container").style.opacity = "0";
 }
@@ -40,9 +37,4 @@ function triggerAnimation() {
     getLine.style.width = "30rem";
     getLine.style.backgroundColor = "#FF3940";
   }
-  // getLine.style.backgroundColor = colors[counter];
-  // counter++;
-  // if(counter >=3) {
-  //   counter = 0;
-  // }
 }

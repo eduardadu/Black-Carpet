@@ -19,7 +19,6 @@ $( document ).ready(function() {
   });
 });
 
-
 function getSelectedGenres() {
   var boxes = document.querySelector("#genre_selector").children;
   var selected = [];
@@ -31,7 +30,6 @@ function getSelectedGenres() {
   return selected;
 }
 
-
 function getSelectedGenders() {
   var boxes = document.querySelector("#gender_selector").children;
   var selected = [];
@@ -42,8 +40,6 @@ function getSelectedGenders() {
   }
   return selected;
 }
-
-
 
 function updateAllStylings() {
   if(parentNode != null) {
@@ -76,7 +72,7 @@ function updateAllStylings() {
       }
     });
   }
-  s.refresh();  
+  s.refresh();
 }
 
 

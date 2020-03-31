@@ -42,7 +42,6 @@ function hightlightNode_range(node, range) {
     currRange = 0;
     childNodesIds = [];
     childNodesIds.push(node.id);
-
     targets = [];
     targets.push(node.id);
     //darken Edges
@@ -50,7 +49,6 @@ function hightlightNode_range(node, range) {
       item.color = deSelected;
       item.size = parseInt(item.attributes.weigth);
     });
-
     //Brightnen parentNode
     changeNodeColor(node);
     node.color = blend_colors(node.color, "rgb(255, 255, 255)");
@@ -70,25 +68,34 @@ function hightlightNode_range(node, range) {
               }
             }
           }
+          //if(targetIsVisible(item)) {
           if(!targets.includes(item.target)) {
             targets.push(item.target);
           }
           if(!targets.includes(item.source)) {
             targets.push(item.source);
           }
+          //    }
         });
       }
       currRange++;
     }
+
     //Darken Nodes
+    var getGenders = getSelectedGenders();
     s.graph.nodes().forEach((item, i) => {
       if(item.id != node.id) {
-        changeNodeColor(item);
+        if(getGenders.includes(parseInt(item.attributes.gender).toString())) {
+          changeNodeColor(item);
+        } else {
+          changeNodeColor(item);
+          item.color = blend_colors(item.color, deSelected);
+        }
       }
       if(childNodesIds.includes(item.id)) {
         hNode(item.id, item);
       }
-      if(!targets.includes(item.id) && ){
+      if(!targets.includes(item.id)){
         changeNodeColor(item);
         item.color = blend_colors(item.color, deSelected);
       }
@@ -164,10 +171,10 @@ function resetHighlights(state) {
       changeEdgeColor(item);
       item.size = parseInt(item.attributes.weigth);
     });
+    s.graph.nodes().forEach((item, i) => {
+      changeNodeColor(item);
+    });
   }
-  s.graph.nodes().forEach((item, i) => {
-    changeNodeColor(item);
-  });
 }
 
 
