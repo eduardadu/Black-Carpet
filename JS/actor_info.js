@@ -31,7 +31,8 @@ $( document ).ready(function() {
   $("#actor_info_cancel").click(function() {
     resetHighlights("mindAtts");
     parentNode = null;
-    document.querySelector('#actor_info').style.display="none";
+    OpenCloseActor(true);
+
     s.refresh();
   });
 });
@@ -88,7 +89,7 @@ function hightlightNode_range(node, range) {
       if(childNodesIds.includes(item.id)) {
         hNode(item.id, item);
       }
-      if(!targets.includes(item.id) && ){
+      if(!targets.includes(item.id)  ){
         changeNodeColor(item);
         item.color = blend_colors(item.color, deSelected);
       }
@@ -180,5 +181,5 @@ function displayInfo(i){
   }else{
     document.querySelector('#imgcolor').style.backgroundColor="#1A423A"; //verde
   }
-  document.querySelector('#actor_info').style.display="flex";
+  OpenCloseActor(false);
 }
