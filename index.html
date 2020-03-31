@@ -73,14 +73,18 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/actor_style.css">
   <link rel="stylesheet" href="css/tab_style.css">
+  <link rel="stylesheet" href="css/about.css">
 </head>
 <body>
+
+  <!-- .............................................................................. -->
   <div style="color: white; cursor: pointer; position:fixed" class="tab_container">
     <div class="tab" id="change2BH">Force Atlas 2</div>
     <div class="tab" id="change2Dynamic" style="opacity:1;">Interactive</div>
     <div class="tab" id="change2BigData">Yifan Hu Proportional </div>
   </div>
 
+ <!-- .............................................................................. -->
   <div id="actor_info" >
     <div id="imgbox">
       <img id="actorimg" src="" width="100px">
@@ -98,6 +102,41 @@
           <path d="M22 1L1 22" stroke="white" stroke-width="2"/>
           <path d="M22 22L1 0.999999" stroke="white" stroke-width="2"/>
         </svg>
+      </div>
+    </div>
+  </div>
+
+<!-- - -->
+  <div id="about_container" >
+    <div id="closeA">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 1L1 22" stroke="white" stroke-width="2"/>
+        <path d="M22 22L1 0.999999" stroke="white" stroke-width="2"/>
+      </svg>
+    </div>
+    <div class="about_smallCONT">
+      <div id="aboutButt"></div>
+      <div class="aboutTitle">About Black Carpet Project</div>
+      <div class="aboutline"></div>
+
+      <div id="aboutlegendas">
+        <img id="firstleg" style="position:relative; visibility:visible;" src="images/legenda1.png">
+        <img src="images/legenda2.png">
+        <img src="images/legenda3.png">
+        <img src="images/legenda4.png">
+      </div>
+      <div class="text legenda">
+
+      </div>
+      <div class="text">
+        This project focus on visualizing famous actors networks based on what movies they collabed on.
+        With the objective of finding interesting narratives, that may or may not address some social concerns that we hear about in today's news.
+        The project Black Carpet takes its name from the traditional Red Carpet and a metaphor of a universe of stars.
+        <br><br>You may also associate it with a dark side of the Hollywood shine, the side that doesn't get to be under the obvious spotlight.
+        We hope you have fun finding your own discoveries on some visual correlations that this representation may offer.
+        There's some customizable options that can be combined to show different outputs.
+
+
       </div>
     </div>
   </div>
@@ -200,13 +239,7 @@
         </div>
       </div>
     </div>
-    <div id="about_container" style="display:none;">
-      <div class="about_smallCONT">
-        <div id="aboutButt"></div>
-        <div class="name_Title">About Black Carpet Project</div>
-        <div class="text"></div>
-      </div>
-    </div>
+
 
 
     <div id="loadScreen">
@@ -217,5 +250,6 @@
       </div>
     </div>
     <script src="JS/ux_css_manipulation.js"></script>
+
   </body>
   </html>

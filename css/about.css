@@ -1,0 +1,74 @@
+#about_container{
+  position:fixed;
+  height:100%;
+  width:100%;
+  background-color: #110F0C;
+  z-index:70;
+  display: none;
+  text-align: center;
+}
+
+#closeA{
+  position:fixed;
+  top:4rem;
+  right:4rem;
+}
+#closeA:hover{
+  cursor:pointer
+}
+
+.about_smallCONT{
+  position:relative;
+  margin-left:auto; margin-right:auto; margin-top: 150px;
+  max-width: 80%;  width: 600px;
+  overflow-y: auto;
+  top:0;
+
+}
+
+#myCanvas{
+  position:relative;
+  max-width: 600px; width:60%;
+  height: 30%; max-height: 150px;
+  margin-bottom: 2rem;
+}
+/* *----------------------------------------------------------TEXT*/
+.text{
+  font-family: spaceGrotesk;
+  color:white;
+  size:1rem;
+  text-align: left;
+  line-height: 1.3rem;
+}
+
+.aboutTitle{
+  font-size:2.2rem;
+  color:white;
+  font-family: spaceGrotesk;  font-weight: bold;
+  margin-bottom:1rem;
+}
+
+.aboutline{
+  border-bottom: 2px solid white;
+  margin-bottom: 1rem;
+}
+/* -----------------------------------LGENDAS*/
+#aboutlegendas{
+  position:relative;
+  height:inherit;
+  width:400px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#aboutlegendas img{
+  position:absolute;
+  visibility:hidden;
+  left:0;
+  height:auto;
+  width:400px;
+  top:0;
+  object-fit: cover;
+  z-index:80;
+}
