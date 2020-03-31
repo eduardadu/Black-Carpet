@@ -1,4 +1,4 @@
-      var open=false;
+var open=false;
 
 
 $( document ).ready(function() {
@@ -9,10 +9,10 @@ $( document ).ready(function() {
   //  var slideIn=false;
 
 
-//---------------------------------------------------------------SIDEBAR IN AND OUT
+  //---------------------------------------------------------------SIDEBAR IN AND OUT
   seta.addEventListener("click", function(){
 
-  //  var ws = document.querySelectorAll('.sidebar').offsetWidth;
+    //  var ws = document.querySelectorAll('.sidebar').offsetWidth;
 
     if(slideOut==false){
       for(var i=0; i<bar.length;i++){
@@ -27,8 +27,8 @@ $( document ).ready(function() {
       document.querySelector('.tab_container').style.bottom="0px";
     }else{
       for(var i=0; i<bar.length;i++){
-            bar[i].classList.remove('move');
-            bar[i].style.minWidth=  "0px";
+        bar[i].classList.remove('move');
+        bar[i].style.minWidth=  "0px";
 
       }
       barUp[0].classList.remove('moveUP');
@@ -39,11 +39,11 @@ $( document ).ready(function() {
     }
     slideOut=!slideOut;
 
-});
-//----------------------------------------------------------------------------------ABOUT container
+  });
+  //----------------------------------------------------------------------------------ABOUT container
 
-var titulo= document.querySelector('#titulo');
-var about= document.querySelector('#aboutlittle');
+  var titulo= document.querySelector('#titulo');
+  var about= document.querySelector('#aboutlittle');
 
   titulo.addEventListener("mouseover", function(){
     about.style.height="3rem";
@@ -64,62 +64,79 @@ var about= document.querySelector('#aboutlittle');
   });
 
 
-//---------------------------------------------------------------------------------------tab
- var tabs= document.querySelectorAll('.tab');
-tabs[0].style.opacity="0.3";
-tabs[2].style.opacity="0.3";
+  //---------------------------------------------------------------------------------------tab
+  var tabs= document.querySelectorAll('.tab');
+  tabs[0].style.opacity="0.3";
+  tabs[2].style.opacity="0.3";
 
-      tabs[0].addEventListener('click', function(){
-         for(var j=0; j<tabs.length; j++){
-             tabs[j].style.opacity="0.3";
-         }
-         tabs[0].style.opacity="1";
 
-         for(var i=0; i<bar.length;i++){
-               bar[i].classList.remove('move');
-               bar[i].style.minWidth=  "0px";
-         }
-         barUp[0].classList.remove('moveUP');
-         document.querySelector('#setafora').style.transform = 'rotate(0deg)';
-         document.querySelector('#setafora').classList.remove('setaleft');
-         document.querySelector('#setafora').style.display="none";
-         document.querySelector('.tab_container').style.bottom="0px";
-      });
+  tabs.forEach((item, i) => {
+    item.addEventListener('mouseover', function() {
+      if(item.style.opacity != "1" ) {
+        item.style.opacity = "0.95";
+      }
+    });
+    item.addEventListener('mouseout', function() {
+      if(item.style.opacity != "1" ) {
+        item.style.opacity = "0.3";
+      }
 
-      tabs[1].addEventListener('click', function(){
-         for(var j=0; j<tabs.length; j++){
-             tabs[j].style.opacity="0.3";
+    });
+  });
 
-         }
-         tabs[1].style.opacity="1";
-         for(var i=0; i<bar.length;i++){
-               bar[i].classList.remove('move');
-               bar[i].style.minWidth=  "0px";
-         }
-         barUp[0].classList.remove('moveUP');
-         document.querySelector('#setafora').style.transform = 'rotate(0deg)';
-         document.querySelector('#setafora').classList.remove('setaleft');
-         document.querySelector('#setafora').style.display="block";
-         document.querySelector('.tab_container').style.bottom="0px";
-      });
 
-      tabs[2].addEventListener('click', function(){
-         for(var j=0; j<tabs.length; j++){
-             tabs[j].style.opacity="0.3";
 
-         }
-         tabs[2].style.opacity="1";
+  tabs[0].addEventListener('click', function(){
+    for(var j=0; j<tabs.length; j++){
+      tabs[j].style.opacity="0.3";
+    }
+    tabs[0].style.opacity="1";
 
-         for(var i=0; i<bar.length;i++){
-               bar[i].classList.remove('move');
-               bar[i].style.minWidth=  "0px";
-         }
-         barUp[0].classList.remove('moveUP');
-         document.querySelector('#setafora').style.transform = 'rotate(0deg)';
-         document.querySelector('#setafora').classList.remove('setaleft');
-         document.querySelector('#setafora').style.display="none";
-         document.querySelector('.tab_container').style.bottom="0px";
-      });
+    for(var i=0; i<bar.length;i++){
+      bar[i].classList.remove('move');
+      bar[i].style.minWidth=  "0px";
+    }
+    barUp[0].classList.remove('moveUP');
+    document.querySelector('#setafora').style.transform = 'rotate(0deg)';
+    document.querySelector('#setafora').classList.remove('setaleft');
+    document.querySelector('#setafora').style.display="none";
+    document.querySelector('.tab_container').style.bottom="0px";
+  });
+
+  tabs[1].addEventListener('click', function(){
+    for(var j=0; j<tabs.length; j++){
+      tabs[j].style.opacity="0.3";
+
+    }
+    tabs[1].style.opacity="1";
+    for(var i=0; i<bar.length;i++){
+      bar[i].classList.remove('move');
+      bar[i].style.minWidth=  "0px";
+    }
+    barUp[0].classList.remove('moveUP');
+    document.querySelector('#setafora').style.transform = 'rotate(0deg)';
+    document.querySelector('#setafora').classList.remove('setaleft');
+    document.querySelector('#setafora').style.display="block";
+    document.querySelector('.tab_container').style.bottom="0px";
+  });
+
+  tabs[2].addEventListener('click', function(){
+    for(var j=0; j<tabs.length; j++){
+      tabs[j].style.opacity="0.3";
+
+    }
+    tabs[2].style.opacity="1";
+
+    for(var i=0; i<bar.length;i++){
+      bar[i].classList.remove('move');
+      bar[i].style.minWidth=  "0px";
+    }
+    barUp[0].classList.remove('moveUP');
+    document.querySelector('#setafora').style.transform = 'rotate(0deg)';
+    document.querySelector('#setafora').classList.remove('setaleft');
+    document.querySelector('#setafora').style.display="none";
+    document.querySelector('.tab_container').style.bottom="0px";
+  });
 
 
 
@@ -134,5 +151,5 @@ function OpenCloseActor(i){
     document.querySelector('#actor_info').style.visibility="hidden";
     document.querySelector('#actor_info').style.left="-200px";
   }
-  
+
 };

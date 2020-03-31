@@ -43,7 +43,7 @@ function goToNode(actorN) {
   console.log("Searching "+actorN);
 
   if(actorN != "€") {
-    resetHighlights("mindAtts");
+    //resetHighlights("mindAtts");
     var found = false;
     for(let i=0; i<s.graph.nodes().length; i++) {
       if(s.graph.nodes()[i].label === actorN) {

@@ -1,7 +1,7 @@
 var s;
 var actorNames = [];
-var edgeSelectedSizeInc = 3;
 var genero;
+var edgeSelectedSizeInc = 3;
 
 $( document ).ready(function() {
   s = new sigma(
@@ -13,8 +13,8 @@ $( document ).ready(function() {
       },
       settings: {
         labelColor: 'node',
-        minEdgeSize: 0.01,
-        maxEdgeSize: 0.9,
+        minEdgeSize: 0.05,
+        maxEdgeSize: 0.85,
         minNodeSize: 0,
         maxNodeSize: 3,
         defaultEdgeType: 'thickLine',
