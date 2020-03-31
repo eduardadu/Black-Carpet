@@ -63,9 +63,63 @@ var about= document.querySelector('#aboutlittle');
     about.style.height="0rem";
   });
 
+  var imgLeg= document.querySelectorAll("#aboutlegendas img");
+var temp;
+  function slideShow(){
+    temp=0;
 
-//---------------------------------------------------------------------------------------tab
- var tabs= document.querySelectorAll('.tab');
+       setTimeout(function(){
+       }, (2000*1));
+       setTimeout(function(){
+         imgLeg[2].style.visibility="visible";
+       }, (2000*2));
+       setTimeout(function(){
+         imgLeg[3].style.visibility="visible";
+       }, (2000*3));
+
+    setTimeout(function(){
+       for( var j=1; j<4;j++){
+         imgLeg[j].style.visibility="hidden";
+       }
+     }, 8000);
+  }
+
+//---------------------------------------------------------------------------------------CLICK ABOUT, MODAL
+var aboutCont= document.querySelector('#about_container');
+var uiCont= document.querySelector('#ui_container');
+var sCont= document.querySelector('#sigma-container');
+
+  about.addEventListener('click', function(){ //incluir o clique na caixa com info
+
+    aboutCont.style.display="flex";
+    uiCont.style.visibility="hidden";
+    sCont.style.display="none";
+    document.querySelector('.tab_container').style.bottom="0px";
+    document.querySelector('.tab_container').style.visibility="hidden";
+    setInterval(slideShow(), 2000);
+  });
+
+  titulo.addEventListener('click', function(){ //para incluir o clique no titulo
+    uiCont.style.visibility="hidden";
+    aboutCont.style.display="flex";
+    sCont.style.display="none";
+    document.querySelector('.tab_container').style.visibility="hidden";
+    setInterval(slideShow(), 2000);
+  });
+
+var closeAbout= document.querySelector('#closeA'); //para fechar
+
+  closeAbout.addEventListener('click', function(){
+    aboutCont.style.display="none";
+    uiCont.style.visibility="visible";
+    sCont.style.display="block";
+    document.querySelector('.tab_container').style.visibility="visible";
+  });
+
+
+
+//---------------------------------------------------------------------------------------TABS
+var tabs= document.querySelectorAll('.tab');
 tabs[0].style.opacity="0.3";
 tabs[2].style.opacity="0.3";
 
@@ -84,6 +138,7 @@ tabs[2].style.opacity="0.3";
          document.querySelector('#setafora').classList.remove('setaleft');
          document.querySelector('#setafora').style.display="none";
          document.querySelector('.tab_container').style.bottom="0px";
+         estatico==true;
       });
 
       tabs[1].addEventListener('click', function(){
@@ -101,6 +156,7 @@ tabs[2].style.opacity="0.3";
          document.querySelector('#setafora').classList.remove('setaleft');
          document.querySelector('#setafora').style.display="block";
          document.querySelector('.tab_container').style.bottom="0px";
+         estatico=false;
       });
 
       tabs[2].addEventListener('click', function(){
@@ -126,7 +182,7 @@ tabs[2].style.opacity="0.3";
 
 });
 
-
+//---------------------------------------------------ANIMAÇAO FICHA DO ATOR
 function OpenCloseActor(i){
   if(estatico==false){
     if(i==false){
@@ -137,5 +193,9 @@ function OpenCloseActor(i){
       document.querySelector('#actor_info').style.left="-200px";
     }
   }
+
+
+
+
 
 };
