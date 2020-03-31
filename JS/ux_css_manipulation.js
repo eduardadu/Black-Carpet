@@ -1,5 +1,5 @@
-      var open=false;
-
+      var estatico=false;
+      var modalOn=false;
 
 $( document ).ready(function() {
   var seta = document.querySelector('#setafora');
@@ -63,27 +63,6 @@ var about= document.querySelector('#aboutlittle');
     about.style.height="0rem";
   });
 
-  var imgLeg= document.querySelectorAll("#aboutlegendas img");
-var temp;
-  function slideShow(){
-    temp=0;
-
-       setTimeout(function(){
-       }, (2000*1));
-       setTimeout(function(){
-         imgLeg[2].style.visibility="visible";
-       }, (2000*2));
-       setTimeout(function(){
-         imgLeg[3].style.visibility="visible";
-       }, (2000*3));
-
-    setTimeout(function(){
-       for( var j=1; j<4;j++){
-         imgLeg[j].style.visibility="hidden";
-       }
-     }, 8000);
-  }
-
 //---------------------------------------------------------------------------------------CLICK ABOUT, MODAL
 var aboutCont= document.querySelector('#about_container');
 var uiCont= document.querySelector('#ui_container');
@@ -96,7 +75,7 @@ var sCont= document.querySelector('#sigma-container');
     sCont.style.display="none";
     document.querySelector('.tab_container').style.bottom="0px";
     document.querySelector('.tab_container').style.visibility="hidden";
-    setInterval(slideShow(), 2000);
+    modalOn=true;
   });
 
   titulo.addEventListener('click', function(){ //para incluir o clique no titulo
@@ -104,8 +83,10 @@ var sCont= document.querySelector('#sigma-container');
     aboutCont.style.display="flex";
     sCont.style.display="none";
     document.querySelector('.tab_container').style.visibility="hidden";
-    setInterval(slideShow(), 2000);
+    modalOn=true;
   });
+
+
 
 var closeAbout= document.querySelector('#closeA'); //para fechar
 
@@ -194,8 +175,35 @@ function OpenCloseActor(i){
     }
   }
 
-
-
-
-
 };
+
+
+
+  //----------------------------------------------------------LEGENDA
+
+  var imgLeg= document.querySelectorAll("#aboutlegendas img");
+  var temp;
+    function slideShow(){
+      temp=0;
+      if(modalOn==true){
+         setTimeout(function(){
+           imgLeg[1].style.visibility="visible";
+         }, (2000*1));
+         setTimeout(function(){
+           imgLeg[2].style.visibility="visible";
+         }, (2000*2));
+         setTimeout(function(){
+           imgLeg[3].style.visibility="visible";
+         }, (2000*3));
+
+      setTimeout(function(){
+         for( var j=1; j<4;j++){
+           imgLeg[j].style.visibility="hidden";
+         }
+       }, 8000);
+     }
+     modelOn=true;
+   };
+
+slideShow;
+  window.setInterval(slideShow, 10000);

@@ -68,6 +68,7 @@
   left:0;
   height:auto;
   width:400px;
+  top:0;
   object-fit: cover;
   z-index:80;
 }
