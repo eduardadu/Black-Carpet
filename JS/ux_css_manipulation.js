@@ -1,5 +1,5 @@
-      var estatico=false;
-      var modalOn=false;
+var estatico=false;
+var modalOn=false;
 
 $( document ).ready(function() {
   var seta = document.querySelector('#setafora');
@@ -63,10 +63,10 @@ $( document ).ready(function() {
     about.style.height="0rem";
   });
 
-//---------------------------------------------------------------------------------------CLICK ABOUT, MODAL
-var aboutCont= document.querySelector('#about_container');
-var uiCont= document.querySelector('#ui_container');
-var sCont= document.querySelector('#sigma-container');
+  //---------------------------------------------------------------------------------------CLICK ABOUT, MODAL
+  var aboutCont= document.querySelector('#about_container');
+  var uiCont= document.querySelector('#ui_container');
+  var sCont= document.querySelector('#sigma-container');
 
   about.addEventListener('click', function(){ //incluir o clique na caixa com info
 
@@ -88,7 +88,7 @@ var sCont= document.querySelector('#sigma-container');
 
 
 
-var closeAbout= document.querySelector('#closeA'); //para fechar
+  var closeAbout= document.querySelector('#closeA'); //para fechar
 
   closeAbout.addEventListener('click', function(){
     aboutCont.style.display="none";
@@ -99,65 +99,79 @@ var closeAbout= document.querySelector('#closeA'); //para fechar
 
 
 
-//---------------------------------------------------------------------------------------TABS
-var tabs= document.querySelectorAll('.tab');
-tabs[0].style.opacity="0.3";
-tabs[2].style.opacity="0.3";
+  //---------------------------------------------------------------------------------------TABS
+  var tabs= document.querySelectorAll('.tab');
+  tabs[0].style.opacity="0.3";
+  tabs[2].style.opacity="0.3";
 
-      tabs[0].addEventListener('click', function(){
-         for(var j=0; j<tabs.length; j++){
-             tabs[j].style.opacity="0.3";
-         }
-         tabs[0].style.opacity="1";
+  tabs.forEach((item, i) => {
+    item.addEventListener('mouseover', function() {
+      if(item.style.opacity != "1" ) {
+        item.style.opacity = "0.95";
+      }
+    });
+    item.addEventListener('mouseout', function() {
+      if(item.style.opacity != "1" ) {
+        item.style.opacity = "0.3";
+      }
+    });
+  });
 
-         for(var i=0; i<bar.length;i++){
-               bar[i].classList.remove('move');
-               bar[i].style.minWidth=  "0px";
-         }
-         barUp[0].classList.remove('moveUP');
-         document.querySelector('#setafora').style.transform = 'rotate(0deg)';
-         document.querySelector('#setafora').classList.remove('setaleft');
-         document.querySelector('#setafora').style.display="none";
-         document.querySelector('.tab_container').style.bottom="0px";
-         estatico==true;
-      });
 
-      tabs[1].addEventListener('click', function(){
-         for(var j=0; j<tabs.length; j++){
-             tabs[j].style.opacity="0.3";
+  tabs[0].addEventListener('click', function(){
+    for(var j=0; j<tabs.length; j++){
+      tabs[j].style.opacity="0.3";
+    }
+    tabs[0].style.opacity="1";
 
-         }
-         tabs[1].style.opacity="1";
-         for(var i=0; i<bar.length;i++){
-               bar[i].classList.remove('move');
-               bar[i].style.minWidth=  "0px";
-         }
-         barUp[0].classList.remove('moveUP');
-         document.querySelector('#setafora').style.transform = 'rotate(0deg)';
-         document.querySelector('#setafora').classList.remove('setaleft');
-         document.querySelector('#setafora').style.display="block";
-         document.querySelector('.tab_container').style.bottom="0px";
-         estatico=false;
-      });
+    for(var i=0; i<bar.length;i++){
+      bar[i].classList.remove('move');
+      bar[i].style.minWidth=  "0px";
+    }
+    barUp[0].classList.remove('moveUP');
+    document.querySelector('#setafora').style.transform = 'rotate(0deg)';
+    document.querySelector('#setafora').classList.remove('setaleft');
+    document.querySelector('#setafora').style.display="none";
+    document.querySelector('.tab_container').style.bottom="0px";
+    estatico==true;
+  });
 
-      tabs[2].addEventListener('click', function(){
-         for(var j=0; j<tabs.length; j++){
-             tabs[j].style.opacity="0.3";
+  tabs[1].addEventListener('click', function(){
+    for(var j=0; j<tabs.length; j++){
+      tabs[j].style.opacity="0.3";
 
-         }
-         tabs[2].style.opacity="1";
+    }
+    tabs[1].style.opacity="1";
+    for(var i=0; i<bar.length;i++){
+      bar[i].classList.remove('move');
+      bar[i].style.minWidth=  "0px";
+    }
+    barUp[0].classList.remove('moveUP');
+    document.querySelector('#setafora').style.transform = 'rotate(0deg)';
+    document.querySelector('#setafora').classList.remove('setaleft');
+    document.querySelector('#setafora').style.display="block";
+    document.querySelector('.tab_container').style.bottom="0px";
+    estatico=false;
+  });
 
-         for(var i=0; i<bar.length;i++){
-               bar[i].classList.remove('move');
-               bar[i].style.minWidth=  "0px";
-         }
-         barUp[0].classList.remove('moveUP');
-         document.querySelector('#setafora').style.transform = 'rotate(0deg)';
-         document.querySelector('#setafora').classList.remove('setaleft');
-         document.querySelector('#setafora').style.display="none";
-         document.querySelector('.tab_container').style.bottom="0px";
-         estatico=true;
-      });
+  tabs[2].addEventListener('click', function(){
+    for(var j=0; j<tabs.length; j++){
+      tabs[j].style.opacity="0.3";
+
+    }
+    tabs[2].style.opacity="1";
+
+    for(var i=0; i<bar.length;i++){
+      bar[i].classList.remove('move');
+      bar[i].style.minWidth=  "0px";
+    }
+    barUp[0].classList.remove('moveUP');
+    document.querySelector('#setafora').style.transform = 'rotate(0deg)';
+    document.querySelector('#setafora').classList.remove('setaleft');
+    document.querySelector('#setafora').style.display="none";
+    document.querySelector('.tab_container').style.bottom="0px";
+    estatico=true;
+  });
 
 
 
@@ -179,31 +193,31 @@ function OpenCloseActor(i){
 
 
 
-  //----------------------------------------------------------LEGENDA
+//----------------------------------------------------------LEGENDA
 
-  var imgLeg= document.querySelectorAll("#aboutlegendas img");
-  var temp;
-    function slideShow(){
-      temp=0;
-      if(modalOn==true){
-         setTimeout(function(){
-           imgLeg[1].style.visibility="visible";
-         }, (2000*1));
-         setTimeout(function(){
-           imgLeg[2].style.visibility="visible";
-         }, (2000*2));
-         setTimeout(function(){
-           imgLeg[3].style.visibility="visible";
-         }, (2000*3));
+var imgLeg= document.querySelectorAll("#aboutlegendas img");
+var temp;
+function slideShow(){
+  temp=0;
+  if(modalOn==true){
+    setTimeout(function(){
+      imgLeg[1].style.visibility="visible";
+    }, (2000*1));
+    setTimeout(function(){
+      imgLeg[2].style.visibility="visible";
+    }, (2000*2));
+    setTimeout(function(){
+      imgLeg[3].style.visibility="visible";
+    }, (2000*3));
 
-      setTimeout(function(){
-         for( var j=1; j<4;j++){
-           imgLeg[j].style.visibility="hidden";
-         }
-       }, 8000);
-     }
-     modelOn=true;
-   };
+    setTimeout(function(){
+      for( var j=1; j<4;j++){
+        imgLeg[j].style.visibility="hidden";
+      }
+    }, 8000);
+  }
+  modelOn=true;
+};
 
 slideShow;
-  window.setInterval(slideShow, 10000);
+window.setInterval(slideShow, 10000);

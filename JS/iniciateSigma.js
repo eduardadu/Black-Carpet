@@ -1,7 +1,7 @@
 var s;
 var actorNames = [];
 var genero;
-var edgeSelectedSizeInc = 3;
+var edgeSelectedSizeInc = 1;
 
 $( document ).ready(function() {
   s = new sigma(

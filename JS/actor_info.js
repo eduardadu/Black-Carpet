@@ -62,16 +62,28 @@ function hightlightNode_range(node, range) {
       for(let u=0; u<l; u++) {
         if(childNodesIds[u] != null) {
           s.graph.adjacentEdges(childNodesIds[u]).forEach((item, i) => {
-            if(u < il) {
-              if(currRange > 0) {
-                if(u == 0) { //Aqui podem haver conexões com generos diferentes
+
+            if(u == 0 && edgeCatTest(item)) { //Aqui podem haver conexões com generos diferentes
+              if(u < il) {
+                if(currRange > 0) {
                   if(!childNodesIds.includes(item.source)) {
                     childNodesIds.push(item.source);
                   }
                   if(!childNodesIds.includes(item.target)) {
                     childNodesIds.push(item.target);
                   }
-                } else if(edgeGenderTest(item)) { //Aqui não podem haver conexões com generos diferentes
+                } else {
+                }
+              }
+              if(!targets.includes(item.target)) {
+                targets.push(item.target);
+              }
+              if(!targets.includes(item.source)) {
+                targets.push(item.source);
+              }
+            } else if(edgeGenderTest(item)) { //Aqui não podem haver conexões com generos diferentes
+              if(u < il) {
+                if(currRange > 0) {
                   if(!childNodesIds.includes(item.source)) {
                     childNodesIds.push(item.source);
                   }
@@ -80,12 +92,12 @@ function hightlightNode_range(node, range) {
                   }
                 }
               }
-            }
-            if(!targets.includes(item.target)) {
-              targets.push(item.target);
-            }
-            if(!targets.includes(item.source)) {
-              targets.push(item.source);
+              if(!targets.includes(item.target)) {
+                targets.push(item.target);
+              }
+              if(!targets.includes(item.source)) {
+                targets.push(item.source);
+              }
             }
           });
         }
@@ -97,21 +109,18 @@ function hightlightNode_range(node, range) {
     var getGenders = getSelectedGenders();
     s.graph.nodes().forEach((item, i) => {
       if(item.id != node.id) {
-        if(getGenders.includes(parseInt(item.attributes.gender).toString())) {
-          changeNodeColor(item);
+        changeNodeColor(item);
+        item.color = blend_colors(item.color, deSelected);
+        if(targets.includes(item.id)){
+          if(getGenders.includes(parseInt(item.attributes.gender).toString())) {
+            changeNodeColor(item);
+          }
         }
-        //else {
-        //  changeNodeColor(item);
-        //  item.color = blend_colors(item.color, deSelected);
-        //}
       }
       if(childNodesIds.includes(item.id)) {
         hNode(item.id, item);
       }
-      if(!targets.includes(item.id)){
-        changeNodeColor(item);
-        item.color = blend_colors(item.color, deSelected);
-      }
+
     });
     s.refresh();
   }
@@ -201,6 +210,24 @@ function edgeGenderTest(ed) {
   var g = ed.attributes.genders.split("-");
   var genders = getSelectedGenders();
   if(genders.includes(g[0]) && genders.includes(g[1])) {
+    return true;
+
+  } else {
+    return false;
+  }
+}
+
+
+function edgeCatTest(ed) {
+  var cat = getSelectedGenres();
+  let sumVisibleEdges = 0;
+  //Categorias
+  for(let u = 0; u < cat.length; u++) {
+    if(ed.attributes[cat[u]] != null) {
+      sumVisibleEdges += parseInt(ed.attributes[cat[u]]);
+    }
+  }
+  if(sumVisibleEdges > 0) {
     return true;
   } else {
     return false;
