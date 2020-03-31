@@ -1,14 +1,18 @@
 #actor_info{
+    visibility: hidden;
   background-color: #110F0C;
   position:fixed;
   opacity:90%;
   width:225px;
-height:inherit;
-  display:none;
+  height:inherit;
   flex-direction: column;
-  top:10em;
-  left:10rem;
+  top:12rem;
+left:-200px;
+  right:2rem;
   z-index:30;
+  display:flex;
+  transition: all 0.8s ease-in-out;
+  overflow: hidden;
 }
 
 
@@ -77,6 +81,7 @@ height:inherit;
 #actor_link:hover{
   cursor:pointer;
   text-decoration: underline;
+  color: #FF3940;
 }
 
 #actor_info_cancel{
@@ -88,32 +93,49 @@ height:inherit;
   margin-bottom: 0.2rem;
   cursor:pointer;
 }
+
 #degree_val{
-  font-size:0.8rem;
+  position: relative;
+  top:2px;
+  font-size:1rem;
+  right:-8px;
 }
 /* --------------------------------------------------- SLIDER-------------*/
 .slider{
-  margin-top: 0.2rem;
-  -webkit-appearance: none;
+  margin-top: 0.70rem;
+-webkit-appearance: none;
  width: 80%;
  height: 2px;
  background: white;
- outline: none;
  opacity: 0.9;
+ outline: none;
 }
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background: white;
   cursor: pointer;
   border-radius: 50%;
+   outline: none;
 }
 .slider::-moz-range-thumb {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background: white;
   cursor: pointer;
   border-radius: 50%;
+   outline: none;
+}
+
+.slider::-webkit-slider-thumb:hover  {
+  background:#FF3940;
+  width: 12px;
+  height: 12px;
+}
+.slider::-moz-range-thumb:hover {
+  background:#FF3940;
+  width: 12px;
+  height: 12px;
 }

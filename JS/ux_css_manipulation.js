@@ -1,3 +1,5 @@
+      var open=false;
+
 
 $( document ).ready(function() {
   var seta = document.querySelector('#setafora');
@@ -120,4 +122,17 @@ tabs[2].style.opacity="0.3";
       });
 
 
+
 });
+
+
+function OpenCloseActor(i){
+  if(i==false){
+    document.querySelector('#actor_info').style.visibility="visible";
+    document.querySelector('#actor_info').style.left="100px";
+  }else{
+    document.querySelector('#actor_info').style.visibility="hidden";
+    document.querySelector('#actor_info').style.left="-200px";
+  }
+  
+};
