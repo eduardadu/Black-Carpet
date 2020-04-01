@@ -3,7 +3,7 @@ var deSelected = "rgb(0, 0, 0)";
 var edgeColor = "rgb(200, 200, 200)"
 
 //Edges
-var female_color =    "rgb(21, 209, 174)"                      //"rgb(80, 191, 171)";
+var female_color =    "rgb(21, 209, 174)"  ;                    //"rgb(80, 191, 171)";
 var male_color = "rgb(191, 43, 48)";
 var no_gender_color = "rgb(200, 190, 212)"; //          "rgb(223, 213, 236)";
 

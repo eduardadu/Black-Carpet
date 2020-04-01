@@ -1,5 +1,6 @@
 var estatico=false;
 var modalOn=false;
+var colorOn=false;
 
 $( document ).ready(function() {
   var seta = document.querySelector('#setafora');
@@ -175,7 +176,42 @@ $( document ).ready(function() {
 
 
 
+//---------------------------------------------------------------slider
+
+var colorClose = document.querySelector('#colorC');
+var colorOpen = document.querySelector('#colorOpen');
+var colorCont= document.querySelector('.color_picker');
+
+  colorOpen.addEventListener('click', function(){
+    console.log("oi");
+    colorCont.style.display= "flex";
+    uiCont.style.visibility= "hidden";
+    sCont.style.display= "none";
+    document.querySelector('.tab_container').style.bottom= "0px";
+    document.querySelector('.tab_container').style.visibility= "hidden";
+    colorOn=true;
+  });
+
+
+  var closeColor= document.querySelector('#closeC');
+  closeColor.addEventListener('click', function(){
+    colorCont.style.display="none";
+    uiCont.style.visibility="visible";
+    sCont.style.display="block";
+    document.querySelector('.tab_container').style.visibility="visible";
+  });
+
+
 });
+
+
+//-----------------------------------------------------------------COLOR REPLACE
+
+
+
+
+
+
 
 //---------------------------------------------------ANIMAÇAO FICHA DO ATOR
 function OpenCloseActor(i){
