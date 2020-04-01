@@ -80,7 +80,7 @@ function hightlightNode_range(node, range) {
               if(!targets.includes(item.source)) {
                 targets.push(item.source);
               }
-            } else if(edgeGenderTest(item)) { //Aqui não podem haver conexões com generos diferentes
+            } else if(edgeGenderTest(item) && edgeCatTest(item)) { //Aqui não podem haver conexões com generos diferentes
               if(u < il) {
                 if(currRange > 0) {
                   if(!childNodesIds.includes(item.source)) {
