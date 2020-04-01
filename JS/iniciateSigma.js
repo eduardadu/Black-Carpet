@@ -13,6 +13,10 @@ $( document ).ready(function() {
       },
       settings: {
         labelColor: 'node',
+        minEdgeSize: 0.15,
+        maxEdgeSize: 1,
+        minNodeSize: 0.5,
+        maxNodeSize: 2.9,
         defaultEdgeType: 'thickLine',
         defaultNodeType: 'fast'
       }
