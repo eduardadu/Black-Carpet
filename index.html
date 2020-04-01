@@ -140,6 +140,36 @@
   </div>
 
 
+<div class="color_picker" style="margin-bottom: 3rem;">
+  <div id="closeC">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 1L1 22" stroke="white" stroke-width="2"/>
+      <path d="M22 22L1 0.999999" stroke="white" stroke-width="2"/>
+    </svg>
+  </div>
+  <div class="color_smallCont">
+    <div class="ui_title">Change Colors</div>
+    <div class="color_title">Female</div>
+    <div>
+      <input class="picker" type="color" name="favcolor" value="#42cfb5">
+      <input class="picker" type="color" name="favcolor" value="#15d1ae">
+    </div>
+    <div class="color_title">Male</div>
+    <div>
+      <input class="picker" type="color" name="favcolor" value="#ff3940">
+      <input class="picker" type="color" name="favcolor" value="#bf2b30">
+    </div>
+    <div class="color_title">Not Specified</div>
+    <div>
+      <input class="picker" type="color" name="favcolor" value="#b09dc9">
+      <input class="picker" type="color" name="favcolor" value="#c8bed4">
+    </div>
+
+     <button  type="button" id="reset">Reset</button>
+     <button type="button" id="apply">Apply</button>
+  </div>
+</div>
+
   <!--  CANVAS'ES --------------------------------------->
   <div id="sigma-static-bigData-container" style="pointer-events: none;"></div>
   <div id="sigma-static-blackHole-container" style="pointer-events: none;"></div>
@@ -190,7 +220,7 @@
               <input class="gender_box" id="GS_male" type="checkbox" name="GS_male" value="2" checked>
               <label for="GS_male">Male</label>
               <input class="gender_box" id="GS_unknown" type="checkbox" name="GS_unknown" value="0" checked>
-              <label for="GS_unknown">Unknown</label>
+              <label for="GS_unknown">Not Specified</label>
             </form>
           </div>
 
@@ -234,12 +264,13 @@
             </form>
             <div><span id="genre_show_all">Show All</span><span id="genre_hide_all">Hide All</span></div>
           </div>
+
+            <div class="search_container" style="margin-bottom: 2rem; margin-left:2rem;">
+              <div class="ui_title" id="colorOpen" >Change Colors</div>
+            </div>
+         </div>
+
         </div>
-      </div>
-
-      <div class="color_container">
-
-      </div>
 
     </div>
 

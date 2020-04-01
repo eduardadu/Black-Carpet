@@ -1,4 +1,4 @@
-#about_container{
+#about_container, .color_picker{
   position:fixed;
   height:100%;
   width:100%;
@@ -8,22 +8,22 @@
   text-align: center;
 }
 
-#closeA{
+#closeA, #closeC{
   position:fixed;
   top:4rem;
   right:4rem;
 }
-#closeA:hover{
+
+#closeA:hover, #closeC:hover{
   cursor:pointer
 }
 
-.about_smallCONT{
+.about_smallCONT, .color_smallCont{
   position:relative;
   margin-left:auto; margin-right:auto; margin-top: 150px;
   max-width: 80%;  width: 550px;
   overflow-y: auto;
   top:0;
-
 }
 
 /* *----------------------------------------------------------TEXT*/
@@ -65,4 +65,35 @@
   top:0;
   object-fit: cover;
   z-index:80;
+}
+
+
+/* -------------------------------------PICKER*/
+
+.picker{
+  border:none;
+  border-radius: 50%;
+  box-shadow: none;
+  width:50px;
+  height:50px;
+}
+
+
+.color_title{
+  font-family: spaceGrotesk;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  margin-top:2rem;
+  margin-bottom: 1rem;
+  clip-path: ellipse(10px 10px at center);
+}
+
+.color_smallCont button{
+  text-decoration: none;
+  border: none;
+  color: white;
+  font-family: spaceGrotesk;
+  font-size: 1rem;
+  font-weight: bold;
 }
