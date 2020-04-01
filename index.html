@@ -148,21 +148,31 @@
     </svg>
   </div>
   <div class="color_smallCont">
-    <div class="ui_title">Change Colors</div>
-    <div class="color_title">Female</div>
-    <div>
-      <input class="picker" type="color" name="favcolor" value="#42cfb5">
-      <input class="picker" type="color" name="favcolor" value="#15d1ae">
+    <div class="aboutTitle">Change Colors</div>
+    <div class="aboutline"></div>
+
+    <div class="color_bar" style="margin-top:4rem;">
+      <span>Actors</span>
+      <span>Connections</span>
     </div>
-    <div class="color_title">Male</div>
-    <div>
-      <input class="picker" type="color" name="favcolor" value="#ff3940">
-      <input class="picker" type="color" name="favcolor" value="#bf2b30">
+
+    <div class="color_bar">
+      <span class="color_title">Female</span>
+      <input id="femaleCell" class="picker" type="color" name="favcolor" value="#42cfb5">
+      <input class="picker" id="c_con femaleCon" type="color" name="favcolor" value="#15d1ae">
     </div>
-    <div class="color_title">Not Specified</div>
-    <div>
-      <input class="picker" type="color" name="favcolor" value="#b09dc9">
-      <input class="picker" type="color" name="favcolor" value="#c8bed4">
+
+
+    <div class="color_bar">
+      <span class="color_title">Male</span>
+      <input  id="maleCell" class="picker" type="color" name="favcolor" value="#ff3940">
+      <input  id="maleCon" class="picker" id="c_con" type="color" name="favcolor" value="#bf2b30">
+    </div>
+
+    <div class="color_bar">
+      <span class="color_title">Not Specified</span>
+      <input  id="notCell" class="picker" type="color" name="favcolor" value="#b09dc9">
+      <input  id="notCon" class="picker" id="c_con" type="color" name="favcolor" value="#c8bed4">
     </div>
 
      <button  type="button" id="reset">Reset</button>

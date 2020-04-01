@@ -208,6 +208,59 @@ var colorCont= document.querySelector('.color_picker');
 //-----------------------------------------------------------------COLOR REPLACE
 
 
+var maleCell =  document.querySelector('#maleCell');
+var femaleCell = document.querySelector('#femaleCell');
+var otherCell = document.querySelector('#otherCell');
+
+var maleCon =  document.querySelector('#maleCon');
+var femaleCon = document.querySelector('#femaleCon');
+var otherCon = document.querySelector('#otherCon');
+
+var applyCol = document.querySelector('#apply');
+var resetCol = document.querySelector('#reset');
+
+var maleCellO= '#ff3940';
+var femaleCellO= '#42cfb5';
+var otherCellO= "#b09dc9";
+
+var maleCO= '#bf2b30';
+var femaleCO= '#15d1ae' ;
+var otherCO= "#c8bed4" ;
+
+function hexToRgb(hex) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+}
+
+
+apply.addEventListener('click', function(){
+  console.log("COR");
+  node_female_color = femaleCon.value();
+  node_male_color = maleCon.value();
+  node_no_gender_color = otherCon.value();
+
+  female_color = femaleCell.value();
+  male_color = maleCell.value();
+  no_gender_color = otherCell.value();
+
+  updateAllStylings();
+});
+
+
+reset.addEventListener('click', function(){
+  node_female_color = femaleCellO;
+  node_male_color = maleCellO;
+  node_no_gender_color = otherCellO;
+
+  female_color = femaleCO;
+  male_color = maleCO;
+  no_gender_color = otherCO;
+  updateAllStylings();
+});
 
 
 
