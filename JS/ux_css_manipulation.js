@@ -176,97 +176,96 @@ $( document ).ready(function() {
 
 
 
-//---------------------------------------------------------------slider
+  //---------------------------------------------------------------slider
 
-var colorClose = document.querySelector('#colorC');
-var colorOpen = document.querySelector('#colorOpen');
-var colorCont= document.querySelector('.color_picker');
-
-  colorOpen.addEventListener('click', function(){
-    console.log("oi");
-    colorCont.style.display= "flex";
-    uiCont.style.visibility= "hidden";
-    sCont.style.display= "none";
-    document.querySelector('.tab_container').style.bottom= "0px";
-    document.querySelector('.tab_container').style.visibility= "hidden";
-    colorOn=true;
-  });
-
-
-  var closeColor= document.querySelector('#closeC');
-  closeColor.addEventListener('click', function(){
-    colorCont.style.display="none";
-    uiCont.style.visibility="visible";
-    sCont.style.display="block";
-    document.querySelector('.tab_container').style.visibility="visible";
-  });
+  // var colorClose = document.querySelector('#colorC');
+  // var colorOpen = document.querySelector('#colorOpen');
+  // var colorCont= document.querySelector('.color_picker');
+  //
+  // colorOpen.addEventListener('click', function(){
+  //   console.log("oi");
+  //   colorCont.style.display= "flex";
+  //   uiCont.style.visibility= "hidden";
+  //   sCont.style.display= "none";
+  //   document.querySelector('.tab_container').style.bottom= "0px";
+  //   document.querySelector('.tab_container').style.visibility= "hidden";
+  //   colorOn=true;
+  // });
+  //
+  //
+  // var closeColor= document.querySelector('#closeC');
+  // closeColor.addEventListener('click', function(){
+  //   colorCont.style.display="none";
+  //   uiCont.style.visibility="visible";
+  //   sCont.style.display="block";
+  //   document.querySelector('.tab_container').style.visibility="visible";
+  // });
 
 
 });
 
 
 //-----------------------------------------------------------------COLOR REPLACE
-
-
-var maleCell =  document.querySelector('#maleCell');
-var femaleCell = document.querySelector('#femaleCell');
-var otherCell = document.querySelector('#notCell');
-
-var maleCon =  document.querySelector('#maleCon');
-var femaleCon = document.querySelector('#femaleCon');
-var otherCon = document.querySelector('#notCon');
-
-var applyCol = document.querySelector('#apply');
-var resetCol = document.querySelector('#reset');
-
-var maleCellO= "rgb(255, 57, 64)";
-var femaleCellO= "rgb(66, 207, 181)";
-var otherCellO= "rgb(176, 157, 201)";
-
-var maleCO= "rgb(191, 43, 48)";
-var femaleCO= "rgb(21, 209, 174)" ;
-var otherCO= "rgb(200, 190, 212)" ;
-
-function hexToRgb(hex) {
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-
-  var r= parseInt(result[1], 16);
-  var g= parseInt(result[2], 16);
-  var b= parseInt(result[3], 16);
-
-  return r + ", " + g + ", " + b;
-}
-
-var temp="";
-applyCol.addEventListener('click', function(){
-  female_color = 'rgb(' + hexToRgb(femaleCon.value)  + ')' ;
-  male_color = 'rgb(' + hexToRgb(maleCon.value)  + ')' ;
-  no_gender_color = 'rgb(' + hexToRgb(otherCon.value)  + ')'  ;
-console.log(hexToRgb(otherCon.value));
-  node_female_color = 'rgb(' + hexToRgb(femaleCell.value)  + ')'  ;
-  node_male_color = 'rgb(' + hexToRgb(maleCell.value)  + ')'  ;
-  node_no_gender_color = 'rgb(' + hexToRgb(otherCell.value)+ ')'  ;
-
-  
-  resetHighlights();
-  s.refresh();
-});
-
-
-resetCol.addEventListener('click', function(){
-  console.log("AAAA");
-  node_female_color = femaleCellO;
-  node_male_color = maleCellO;
-  node_no_gender_color = otherCellO;
-
-  female_color = femaleCO;
-  male_color = maleCO;
-  no_gender_color = otherCO;
-
-  resetHighlights();
-  s.refresh();
-});
-
+//
+//
+// var maleCell =  document.querySelector('#maleCell');
+// var femaleCell = document.querySelector('#femaleCell');
+// var otherCell = document.querySelector('#notCell');
+//
+// var maleCon =  document.querySelector('#maleCon');
+// var femaleCon = document.querySelector('#femaleCon');
+// var otherCon = document.querySelector('#notCon');
+//
+// var applyCol = document.querySelector('#apply');
+// var resetCol = document.querySelector('#reset');
+//
+// var maleCellO= "rgb(255, 57, 64)";
+// var femaleCellO= "rgb(66, 207, 181)";
+// var otherCellO= "rgb(176, 157, 201)";
+//
+// var maleCO= "rgb(191, 43, 48)";
+// var femaleCO= "rgb(21, 209, 174)" ;
+// var otherCO= "rgb(200, 190, 212)" ;
+//
+// function hexToRgb(hex) {
+//   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+//   var r= parseInt(result[1], 16);
+//   var g= parseInt(result[2], 16);
+//   var b= parseInt(result[3], 16);
+//
+//   return r + ", " + g + ", " + b;
+// }
+//
+// var temp="";
+// applyCol.addEventListener('click', function(){
+//   female_color = 'rgb(' + hexToRgb(femaleCon.value)  + ')' ;
+//   male_color = 'rgb(' + hexToRgb(maleCon.value)  + ')' ;
+//   no_gender_color = 'rgb(' + hexToRgb(otherCon.value)  + ')'  ;
+//   node_female_color = 'rgb(' + hexToRgb(femaleCell.value)  + ')'  ;
+//   node_male_color = 'rgb(' + hexToRgb(maleCell.value)  + ')'  ;
+//   node_no_gender_color = 'rgb(' + hexToRgb(otherCell.value)+ ')'  ;
+//
+//   // console.log(node_female_color);
+//   //
+//   parentNode = null;
+//   updateAllStylings();
+// });
+//
+//
+// resetCol.addEventListener('click', function(){
+//   console.log("AAAA");
+//   node_female_color = femaleCellO;
+//   node_male_color = maleCellO;
+//   node_no_gender_color = otherCellO;
+//
+//   female_color = femaleCO;
+//   male_color = maleCO;
+//   no_gender_color = otherCO;
+//
+//   resetHighlights();
+//   s.refresh();
+// });
+//
 
 
 
@@ -282,7 +281,6 @@ function OpenCloseActor(i){
       document.querySelector('#actor_info').style.left="-200px";
     }
   }
-
 };
 
 

@@ -20,10 +20,10 @@ $(document).ready(function() {
       }
     }
   );
-  // createStaticGaph("data-blackhole", staticS_blackHole);
-  // var coods  = {x:-63.59095175703213, y:-63.59095175703213, ratio:0.6876382730444773, angle:0};
-  // staticS_blackHole.cameras.cam2.goTo(coods);
-  // staticS_blackHole.refresh();
+  createStaticGaph("data-blackhole", staticS_blackHole);
+  var coods  = {x:-50.59095175703213, y:-35.59095175703213, ratio:0.8876382730444773, angle:0};
+  staticS_blackHole.cameras.cam2.goTo(coods);
+  staticS_blackHole.refresh();
 });
 
 function createStaticGaph(jsonName, sInstance) {

@@ -16,13 +16,16 @@ $( document ).ready(function() {
         minEdgeSize: 0.15,
         maxEdgeSize: 1,
         minNodeSize: 0.5,
-        maxNodeSize: 2.9,
+        maxNodeSize: 3.2,
         defaultEdgeType: 'thickLine',
         defaultNodeType: 'fast'
       }
     }
   );
   createGaph();
+  var coods  = {x:79.5, y:-42, ratio:1.75, angle:0};
+  s.cameras.cam1.goTo(coods);
+  s.refresh();
 });
 
 //Lê o JSON
