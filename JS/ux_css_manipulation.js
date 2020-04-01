@@ -210,48 +210,51 @@ var colorCont= document.querySelector('.color_picker');
 
 var maleCell =  document.querySelector('#maleCell');
 var femaleCell = document.querySelector('#femaleCell');
-var otherCell = document.querySelector('#otherCell');
+var otherCell = document.querySelector('#notCell');
 
 var maleCon =  document.querySelector('#maleCon');
 var femaleCon = document.querySelector('#femaleCon');
-var otherCon = document.querySelector('#otherCon');
+var otherCon = document.querySelector('#notCon');
 
 var applyCol = document.querySelector('#apply');
 var resetCol = document.querySelector('#reset');
 
-var maleCellO= '#ff3940';
-var femaleCellO= '#42cfb5';
-var otherCellO= "#b09dc9";
+var maleCellO= "rgb(255, 57, 64)";
+var femaleCellO= "rgb(66, 207, 181)";
+var otherCellO= "rgb(176, 157, 201)";
 
-var maleCO= '#bf2b30';
-var femaleCO= '#15d1ae' ;
-var otherCO= "#c8bed4" ;
+var maleCO= "rgb(191, 43, 48)";
+var femaleCO= "rgb(21, 209, 174)" ;
+var otherCO= "rgb(200, 190, 212)" ;
 
 function hexToRgb(hex) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? {
-    r: parseInt(result[1], 16),
-    g: parseInt(result[2], 16),
-    b: parseInt(result[3], 16)
-  } : null;
+
+  var r= parseInt(result[1], 16);
+  var g= parseInt(result[2], 16);
+  var b= parseInt(result[3], 16);
+
+  return r + ", " + g + ", " + b;
 }
 
+var temp="";
+applyCol.addEventListener('click', function(){
+  female_color = 'rgb(' + hexToRgb(femaleCon.value)  + ')' ;
+  male_color = 'rgb(' + hexToRgb(maleCon.value)  + ')' ;
+  no_gender_color = 'rgb(' + hexToRgb(otherCon.value)  + ')'  ;
+console.log(hexToRgb(otherCon.value));
+  node_female_color = 'rgb(' + hexToRgb(femaleCell.value)  + ')'  ;
+  node_male_color = 'rgb(' + hexToRgb(maleCell.value)  + ')'  ;
+  node_no_gender_color = 'rgb(' + hexToRgb(otherCell.value)+ ')'  ;
 
-apply.addEventListener('click', function(){
-  console.log("COR");
-  node_female_color = femaleCon.value();
-  node_male_color = maleCon.value();
-  node_no_gender_color = otherCon.value();
-
-  female_color = femaleCell.value();
-  male_color = maleCell.value();
-  no_gender_color = otherCell.value();
-
-  updateAllStylings();
+  
+  resetHighlights();
+  s.refresh();
 });
 
 
-reset.addEventListener('click', function(){
+resetCol.addEventListener('click', function(){
+  console.log("AAAA");
   node_female_color = femaleCellO;
   node_male_color = maleCellO;
   node_no_gender_color = otherCellO;
@@ -259,7 +262,9 @@ reset.addEventListener('click', function(){
   female_color = femaleCO;
   male_color = maleCO;
   no_gender_color = otherCO;
-  updateAllStylings();
+
+  resetHighlights();
+  s.refresh();
 });
 
 
