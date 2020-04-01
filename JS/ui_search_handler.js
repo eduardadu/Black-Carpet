@@ -61,7 +61,7 @@ function goToNode(actorN) {
     }
   } else if(actorN == "€") {
     resetHighlights("mindAtts");
-    document.querySelector('#actor_info').style.display="none";
+    OpenCloseActor(true);
     parentNode = null;
     s.refresh();
   }

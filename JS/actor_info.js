@@ -62,7 +62,6 @@ function hightlightNode_range(node, range) {
       for(let u=0; u<l; u++) {
         if(childNodesIds[u] != null) {
           s.graph.adjacentEdges(childNodesIds[u]).forEach((item, i) => {
-
             if(u == 0 && edgeCatTest(item)) { //Aqui podem haver conexões com generos diferentes
               if(u < il) {
                 if(currRange > 0) {
