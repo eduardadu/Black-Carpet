@@ -321,12 +321,39 @@ function slideShow(){
     setTimeout(function(){
       imgLeg[3].style.visibility="visible";
     }, (2000*3));
+    setTimeout(function(){
+      imgLeg[4].style.visibility="visible";
+    }, (2000*4));
+    setTimeout(function(){
+      imgLeg[5].style.visibility="visible";
+    }, (2000*5));
+    setTimeout(function(){
+      imgLeg[6].style.visibility="visible";
+    }, (2000*6));
+    setTimeout(function(){
+      imgLeg[7].style.visibility="visible";
+    }, (2000*7));
+    setTimeout(function(){
+      imgLeg[8].style.visibility="visible";
+    }, (2000*8));
+    setTimeout(function(){
+      imgLeg[9].style.visibility="visible";
+    }, (2000*9));
+    setTimeout(function(){
+      imgLeg[10].style.visibility="visible";
+    }, (2000*10));
+    setTimeout(function(){
+      imgLeg[11].style.visibility="visible";
+    }, (2000*11));
+    setTimeout(function(){
+      imgLeg[12].style.visibility="visible";
+    }, (2000*12));
 
     setTimeout(function(){
-      for( var j=1; j<4;j++){
+      for( var j=1; j<13;j++){
         imgLeg[j].style.visibility="hidden";
       }
-    }, 8000);
+    }, 12*2000);
   }
   modelOn=true;
 };
